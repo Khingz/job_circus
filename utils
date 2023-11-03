@@ -1,0 +1,7 @@
+u = {
+    'username': 'example_username',
+    'email': 'example@example.com',
+    'password': 'example_password',
+    'first_name': 'John',
+    'last_name': 'Doe',
+}
