@@ -1,4 +1,5 @@
 DROP TABLE IF EXISTS jc_db.jobs;
+DROP TABLE IF EXISTS jc_db.applications;
 DROP TABLE IF EXISTS jc_db.users;
 
 CREATE TABLE jc_db.users (
@@ -27,6 +28,15 @@ CREATE TABLE jc_db.jobs (
     updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
 
+CREATE TABLE jc_db.applications (
+    id VARCHAR(60) PRIMARY KEY,
+    user_id VARCHAR(60) NOT NULL,
+    job_id VARCHAR(60) NOT NULL,
+    cover_letter VARCHAR(258),
+    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+
 use jc_db;
 
 -- Sample data for the 'users' table
@@ -46,3 +56,11 @@ INSERT INTO jobs (id, user_id, title, description, location, salary, requirement
 INSERT INTO jobs (id, user_id, title, description, location, salary, requirements, deadline) VALUES ('job7', 'user3', 'Software Engineer', 'Develop web applications', 'San Francisco', '100000', 'Python, JavaScript', '2023-12-31 23:59:59');
 INSERT INTO jobs (id, user_id, title, description, location, salary, requirements, deadline) VALUES ('job8', 'user2', 'Marketing Manager', 'Create marketing campaigns', 'New York', '80000', 'Marketing experience', '2023-12-15 23:59:59');
     -- Add more job data as needed...
+
+-- Sample data for the 'applications' table
+INSERT INTO applications (id, user_id, job_id, cover_letter) VALUES ('app1', 'user1', 'job1', 'I am interested in this position.');
+INSERT INTO applications (id, user_id, job_id, cover_letter) VALUES ('app2', 'user2', 'job2', 'I have the required skills for this role.');
+INSERT INTO applications (id, user_id, job_id, cover_letter) VALUES ('app3', 'user3', 'job3', 'Please find my resume attached.');
+INSERT INTO applications (id, user_id, job_id, cover_letter) VALUES ('app4', 'user4', 'job4', 'I look forward to the opportunity.');
+INSERT INTO applications (id, user_id, job_id, cover_letter) VALUES ('app5', 'user1', 'job5', 'My experience matches your requirements.')
+    -- Add more user data as needed...
