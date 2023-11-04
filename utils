@@ -5,3 +5,13 @@ u = {
     'first_name': 'John',
     'last_name': 'Doe',
 }
+
+j = {
+    'user_id': 'user1',
+    'title': 'Software Engineer',
+    'description': 'Develop web applications',
+    'location': 'San Francisco',
+    'salary': '100000',
+    'requirements': 'Python, JavaScript',
+    'deadline': '2023-12-31 23:59:59'
+}
