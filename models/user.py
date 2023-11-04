@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """This module defines a class User"""
 from models.base_model import BaseModel, Base
-from sqlalchemy import Column, String
+from sqlalchemy import Column, String, Enum
 
 
 class User(BaseModel, Base):
@@ -12,3 +12,4 @@ class User(BaseModel, Base):
     first_name = Column(String(128), nullable=True)
     last_name = Column(String(128), nullable=True)
     username = Column(String(128), nullable=False)
+    role = Column(Enum('Emplyer', 'Job-Seeker'), nullable=False)
