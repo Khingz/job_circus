@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """This module defines a class Job"""
 from models.base_model import BaseModel, Base
-from sqlalchemy import Column, String, ForeignKey, DateTime
+from sqlalchemy import Column, String, ForeignKey, DateTime, CheckConstraint
 from datetime import datetime
 
 
@@ -15,3 +15,7 @@ class Job(BaseModel, Base):
     salary = Column(String(128), nullable=False)
     requirements = Column(String(128), nullable=False)
     deadline = Column(DateTime, nullable=False, default=datetime.utcnow)
+
+    __table_args__ = (
+        CheckConstraint("user_id IN (SELECT id FROM users WHERE role = 'Employer')"),
+    )
