@@ -47,20 +47,20 @@ INSERT INTO users (id, username, email, first_name, last_name, password, role) V
     -- Add more user data as needed...
 
 -- Sample data for the 'jobs' table
-INSERT INTO jobs (id, user_id, title, description, location, salary, requirements, deadline) VALUES ('job1', 'user1', 'Software Engineer', 'Develop web applications', 'San Francisco', '100000', 'Python, JavaScript', '2023-12-31 23:59:59');
-INSERT INTO jobs (id, user_id, title, description, location, salary, requirements, deadline) VALUES ('job2', 'user3', 'Marketing Manager', 'Create marketing campaigns', 'New York', '80000', 'Marketing experience', '2023-12-15 23:59:59');
-INSERT INTO jobs (id, user_id, title, description, location, salary, requirements, deadline) VALUES ('job3', 'user1', 'Software Engineer', 'Develop web applications', 'San Francisco', '100000', 'Python, JavaScript', '2023-12-31 23:59:59');
+INSERT INTO jobs (id, user_id, title, description, location, salary, requirements, deadline) VALUES ('job1', 'user2', 'Software Engineer', 'Develop web applications', 'San Francisco', '100000', 'Python, JavaScript', '2023-12-31 23:59:59');
+INSERT INTO jobs (id, user_id, title, description, location, salary, requirements, deadline) VALUES ('job2', 'user4', 'Marketing Manager', 'Create marketing campaigns', 'New York', '80000', 'Marketing experience', '2023-12-15 23:59:59');
+INSERT INTO jobs (id, user_id, title, description, location, salary, requirements, deadline) VALUES ('job3', 'user4', 'Software Engineer', 'Develop web applications', 'San Francisco', '100000', 'Python, JavaScript', '2023-12-31 23:59:59');
 INSERT INTO jobs (id, user_id, title, description, location, salary, requirements, deadline) VALUES ('job4', 'user2', 'Marketing Manager', 'Create marketing campaigns', 'New York', '80000', 'Marketing experience', '2023-12-15 23:59:59');
-INSERT INTO jobs (id, user_id, title, description, location, salary, requirements, deadline) VALUES ('job5', 'user1', 'Software Engineer', 'Develop web applications', 'San Francisco', '100000', 'Python, JavaScript', '2023-12-31 23:59:59');
+INSERT INTO jobs (id, user_id, title, description, location, salary, requirements, deadline) VALUES ('job5', 'user2', 'Software Engineer', 'Develop web applications', 'San Francisco', '100000', 'Python, JavaScript', '2023-12-31 23:59:59');
 INSERT INTO jobs (id, user_id, title, description, location, salary, requirements, deadline) VALUES ('job6', 'user4', 'Marketing Manager', 'Create marketing campaigns', 'New York', '80000', 'Marketing experience', '2023-12-15 23:59:59');
-INSERT INTO jobs (id, user_id, title, description, location, salary, requirements, deadline) VALUES ('job7', 'user3', 'Software Engineer', 'Develop web applications', 'San Francisco', '100000', 'Python, JavaScript', '2023-12-31 23:59:59');
+INSERT INTO jobs (id, user_id, title, description, location, salary, requirements, deadline) VALUES ('job7', 'user4', 'Software Engineer', 'Develop web applications', 'San Francisco', '100000', 'Python, JavaScript', '2023-12-31 23:59:59');
 INSERT INTO jobs (id, user_id, title, description, location, salary, requirements, deadline) VALUES ('job8', 'user2', 'Marketing Manager', 'Create marketing campaigns', 'New York', '80000', 'Marketing experience', '2023-12-15 23:59:59');
     -- Add more job data as needed...
 
 -- Sample data for the 'applications' table
 INSERT INTO applications (id, user_id, job_id, cover_letter) VALUES ('app1', 'user1', 'job1', 'I am interested in this position.');
-INSERT INTO applications (id, user_id, job_id, cover_letter) VALUES ('app2', 'user2', 'job2', 'I have the required skills for this role.');
+INSERT INTO applications (id, user_id, job_id, cover_letter) VALUES ('app2', 'user3', 'job2', 'I have the required skills for this role.');
 INSERT INTO applications (id, user_id, job_id, cover_letter) VALUES ('app3', 'user3', 'job3', 'Please find my resume attached.');
-INSERT INTO applications (id, user_id, job_id, cover_letter) VALUES ('app4', 'user4', 'job4', 'I look forward to the opportunity.');
+INSERT INTO applications (id, user_id, job_id, cover_letter) VALUES ('app4', 'user1', 'job4', 'I look forward to the opportunity.');
 INSERT INTO applications (id, user_id, job_id, cover_letter) VALUES ('app5', 'user1', 'job5', 'My experience matches your requirements.')
     -- Add more user data as needed...

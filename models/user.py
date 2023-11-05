@@ -13,7 +13,7 @@ class User(BaseModel, Base):
     first_name = Column(String(128), nullable=True)
     last_name = Column(String(128), nullable=True)
     username = Column(String(128), nullable=False)
-    role = Column(Enum('Emplyer', 'Job-Seeker'), nullable=False)
+    role = Column(Enum('Employer', 'Job-Seeker'), nullable=False)
 
     jobs = relationship('Job', back_populates='user', cascade='all, delete-orphan')
     applications = relationship('Application', back_populates='user', cascade='all, delete-orphan')
