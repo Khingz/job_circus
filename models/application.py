@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """This module defines a class application"""
 from models.base_model import BaseModel, Base
-from sqlalchemy import Column, String, ForeignKey, CheckConstraint
+from sqlalchemy import Column, String, ForeignKey
 from sqlalchemy.orm import relationship
 
 
@@ -12,7 +12,3 @@ class Application(BaseModel, Base):
     job_id = Column(String(60), ForeignKey("jobs.id"), nullable=False)
     cover_letter = Column(String(268), nullable=True)
     user = relationship('User', back_populates='applications')
-
-    __table_args__ = (
-        CheckConstraint("user_id IN (SELECT id FROM users WHERE role = 'Job-Seeker')"),
-    )
