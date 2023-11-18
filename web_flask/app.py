@@ -10,7 +10,7 @@ app.config['SECRET_KEY'] = 'secret_key'
 bcrypt = Bcrypt(app)
 
 
-app.register_blueprint(user, url_prefix='/user')
+app.register_blueprint(user, url_prefix='/')
 
 
 if __name__ == '__main__':

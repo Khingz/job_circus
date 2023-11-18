@@ -4,7 +4,7 @@
     <h1>Registration Form</h1>
     <form method="post" action="{{ url_for('user.register') }}">
         {{ form.hidden_tag() }}
-        <div>
+        <div class="form-div">
             <label for="firstname">First Name:</label>
             {{ form.firstname(size=32) }}
         </div>

@@ -28,8 +28,8 @@ def register():
     """Register route"""
     form = RegisterForm()
     if form.validate_on_submit():
-        # Handle form submission logic here
-        # Check if the email is already registered
+        """Handle form submission logic here"""
+        # extract data from form
         data = {
             "username": form.username.data,
             "firstname": form.firstname.data,
@@ -38,20 +38,22 @@ def register():
             "email": form.email.data,
             "role": form.role.data
         }
+        # Check if the email is already registered
         existing_email = storage.get_email(User, data['email'])
         if existing_email:
-            print("Email Error")
             flash('Email address is already registered. Please use a different email.', 'danger')
             return redirect(url_for('user.register'))
+        # Check if the username already exist
         existing_username = storage.get_username(User, data['username'])
         print(existing_username)
         if existing_username:
-            print("User Error")
             flash('Username is already registered. Please use a different username.', 'danger')
             return redirect(url_for('user.register'))
+        # Create new User
         new_user = User(**data)
+        # Save User in database
         new_user.save()
         flash("User Created Successfully", "success")
+        # Rediect to Loggin Page
         return redirect(url_for('user.login'))
-    flash("Enter all fields", "danger")
     return render_template('register.html', form=form)
