@@ -11,4 +11,4 @@ class LoginForm(FlaskForm):
                                              Length(min=4, max=15)])
     password = PasswordField('Password', validators=[InputRequired(),
                                              Length(min=4, max=100)])
-    submit = SubmitField('Submit')
+    submit = SubmitField('Login')

@@ -3,13 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../static//css/main.css">
+    <link rel="stylesheet" href="../static/css/main.css">
+    <link rel="stylesheet" href="../static/css/base.css">
+    {% block styles %}{% endblock %}
     <title>Document</title>
 </head>
 <body>
     <header>
         <nav>
-            <h4></h4>Header</h4>
+            <div class="brand">
+                <div class="logo"><span>JC</span>JOBCIRCUS</div>
+            </div>
+            <div class="user-section">
+                <div class="user-name">
+                    <p>U</p>
+                    <p>Username</p>
+                </div>
+                <div class="login-logout">
+                    <button>Logout</button>
+                </div>
+            </div>
         </nav>
     </header>
     <main>

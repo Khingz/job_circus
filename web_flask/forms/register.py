@@ -22,4 +22,4 @@ class RegisterForm(FlaskForm):
     role = RadioField('role',
                        choices=['Employer', 'Job-Seeker'],
                        validators=[InputRequired()])
-    submit = SubmitField('Submit')
+    submit = SubmitField('Register')
