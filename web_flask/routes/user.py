@@ -5,6 +5,7 @@ from forms.login import LoginForm
 from forms.register import RegisterForm
 from flask_bcrypt import Bcrypt
 from models.user import User
+from models import storage
 
 
 bcrypt = Bcrypt()
@@ -28,6 +29,7 @@ def register():
     form = RegisterForm()
     if form.validate_on_submit():
         # Handle form submission logic here
+        # Check if the email is already registered
         data = {
             "username": form.username.data,
             "firstname": form.firstname.data,
@@ -36,6 +38,17 @@ def register():
             "email": form.email.data,
             "role": form.role.data
         }
+        existing_email = storage.get_email(User, data['email'])
+        if existing_email:
+            print("Email Error")
+            flash('Email address is already registered. Please use a different email.', 'danger')
+            return redirect(url_for('user.register'))
+        existing_username = storage.get_username(User, data['username'])
+        print(existing_username)
+        if existing_username:
+            print("User Error")
+            flash('Username is already registered. Please use a different username.', 'danger')
+            return redirect(url_for('user.register'))
         new_user = User(**data)
         new_user.save()
         flash("User Created Successfully", "success")

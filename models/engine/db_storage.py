@@ -89,3 +89,29 @@ class DBStorage:
                 return value
 
         return None
+    
+    def get_email(self, cls, email):
+        """
+        Returns the object based on the email
+        None if not found
+        """
+        if cls not in classes.values():
+            return None
+        all_cls = models.storage.all(cls)
+        for value in all_cls.values():
+            if (value.email == email):
+                return value
+        return None
+    
+    def get_username(self, cls, username):
+        """
+        Returns the object based on the username or
+        None if not found
+        """
+        if cls not in classes.values():
+            return None
+        all_cls = models.storage.all(cls)
+        for value in all_cls.values():
+            if (value.username == username):
+                return value
+        return None
