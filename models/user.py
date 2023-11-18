@@ -8,12 +8,12 @@ from sqlalchemy.orm import relationship
 class User(BaseModel, Base):
     """This class defines a user by various attributes"""
     __tablename__ = 'users'
-    email = Column(String(128), nullable=False)
+    email = Column(String(128), nullable=False, unique=True)
     password = Column(String(128), nullable=False)
     first_name = Column(String(128), nullable=True)
     last_name = Column(String(128), nullable=True)
-    username = Column(String(128), nullable=False)
-    role = Column(Enum('Employer', 'Job-Seeker'), nullable=False)
+    username = Column(String(128), nullable=False, unique=True)
+    role = Column(String(128), nullable=False)
 
     jobs = relationship('Job', back_populates='user', cascade='all, delete-orphan')
     applications = relationship('Application', back_populates='user', cascade='all, delete-orphan')

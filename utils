@@ -4,7 +4,7 @@ u = {
     'password': 'example_password',
     'first_name': 'John',
     'last_name': 'Doe',
-    'role': 'employer'
+    'role': 'Employer'
 }
 
 j = {

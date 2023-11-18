@@ -1,5 +1,5 @@
-DROP TABLE IF EXISTS jc_db.jobs;
 DROP TABLE IF EXISTS jc_db.applications;
+DROP TABLE IF EXISTS jc_db.jobs;
 DROP TABLE IF EXISTS jc_db.users;
 
 -- CREATE TABLE jc_db.users (
