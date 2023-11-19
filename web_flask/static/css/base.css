@@ -2,7 +2,6 @@
 
 /* Header Section Begin */
 header {
-    background-color: white;
     width: 100%;
     padding: 1rem 0;
 }
@@ -26,9 +25,9 @@ nav .brand span {
     width: 300px;
     border-radius: 50%;
     background-color: var(--primary-color);
-    color: white;
+    color: var(--white);
     margin-right: 0.2rem;
-    padding: 0.7rem;
+    padding: 0.5rem 0.6rem;
 }
 
 nav .user-section {
@@ -44,7 +43,7 @@ nav .user-section span {
     border: solid 2px var(--primary-color);
     color: var(--primary-color);
     margin-right: 0.7rem;
-    padding: 0.7rem 0.9rem;
+    padding: 0.5rem 0.8rem;
     font-size: 1.1rem;
     font-weight: 600;
 }
@@ -65,7 +64,7 @@ nav .user-section .login-logout button {
 /* Footer Section Begin */
 footer {
     width: 100%;
-    padding: 1rem 0;
+    padding: 0.2rem 0;
     background-color: var(--primary-color);
     display: flex;
     justify-content: center;

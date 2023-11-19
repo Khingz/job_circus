@@ -11,7 +11,7 @@
 
 .container-left {
     background-color: var(--primary-color);
-    color: white;
+    color: var(--white);
     width: 45%;
     display: flex;
     flex-direction: column;
@@ -62,10 +62,15 @@
     height: 1.2rem;
     padding: 0.5rem;
     border-radius: 0.5rem;
-    background-color: grey;
+    background-color: var(--light-grey);
     border: none;
     margin-bottom: 0.5rem;
-    color: white;
+    color: var(--white);
+}
+
+.container-right .form-control::placeholder {
+    font-family: var(--main-font);
+    color: var(--dark-grey);
 }
 
 .container-right .role ul {
@@ -82,11 +87,18 @@
 
 .container-right .submit {
     background-color: var(--primary-color);
-    color: white;
+    color: var(--white);
     padding: 0.5rem 1.5rem;
     border-radius: 0.5rem;
     border-color: var(--primary-color);
     cursor: pointer;
+    transition: ease-in-out 0.8s;
+    font-family: var(--main-font);
+    border: none;
+}
+
+.container-right .submit:hover {
+    background-color: var(--hover-color);
 }
 
 
