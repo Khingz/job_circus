@@ -66,6 +66,7 @@
     border: none;
     margin-bottom: 0.5rem;
     color: var(--black);
+    font-family: var(--main-font);
 }
 
 .container-right .form-control::placeholder {

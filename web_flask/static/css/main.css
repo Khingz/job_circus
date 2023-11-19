@@ -1,5 +1,8 @@
 @import url('variables.css');
 
+
+/* Global styles */
+
 body {
     padding: 0;
     margin: 0;
@@ -13,6 +16,6 @@ ul {
     padding: 0;
 }
 
-input::placeholder {
-    color: #999; /* or any other color value */
+a {
+    text-decoration: none;
 }

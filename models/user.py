@@ -3,9 +3,10 @@
 from models.base_model import BaseModel, Base
 from sqlalchemy import Column, String, Enum
 from sqlalchemy.orm import relationship
+from flask_login import UserMixin
 
 
-class User(BaseModel, Base):
+class User(BaseModel, UserMixin, Base):
     """This class defines a user by various attributes"""
     __tablename__ = 'users'
     email = Column(String(128), nullable=False, unique=True)

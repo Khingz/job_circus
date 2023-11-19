@@ -14,9 +14,9 @@
             <h2>Login</h2>
             <form method="post" action="{{ url_for('user.login') }}">
                 {{ form.hidden_tag() }}
-                <label for="Username">Username:</label>
+                <label for="Username">Email:</label>
                 <div class="form-group">
-                    {{ form.username(class="form-control", placeholder="Enter your username") }}
+                    {{ form.email(class="form-control", placeholder="Enter your Email") }}
                 </div>
                 <div class="form-group">
                     <label for="Password">Password:</label>
@@ -26,6 +26,7 @@
                     {{ form.submit(class="submit") }}
                 </div>
             </form>
+            <p>Don't Have an Account? <a href="{{ url_for('user.register') }}">Register</a></p>
         </div>
     </div>
 {% endblock %}

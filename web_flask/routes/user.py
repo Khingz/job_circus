@@ -6,6 +6,7 @@ from forms.register import RegisterForm
 from flask_bcrypt import Bcrypt
 from models.user import User
 from models import storage
+from flask_login import login_user, current_user, login_required, logout_user
 
 
 bcrypt = Bcrypt()
@@ -15,17 +16,25 @@ user = Blueprint('user', __name__)
 @user.route('/login', methods=['GET', 'POST'], endpoint='login')
 def login():
     """Login route"""
+    if current_user.is_authenticated:
+        return redirect(url_for('job.dashboard'))
     form = LoginForm()
     if form.validate_on_submit():
         # Handle form submission logic here
-        username = form.username.data
+        email = form.email.data
         password = form.password.data
-        return f'Username: {username}, Password: {password}. Form submitted successfully.'
+        user = storage.get_email(User, email)
+        if user and bcrypt.check_password_hash(user.password, password):
+            print('loggedin')
+            login_user(user)
+            return redirect(url_for('job.dashboard'))
     return render_template('login.html', form=form)
 
 @user.route('/register', methods=['GET', 'POST'], endpoint='register')
 def register():
     """Register route"""
+    if current_user.is_authenticated:
+        return redirect(url_for('job.dashboard'))
     form = RegisterForm()
     if form.validate_on_submit():
         """Handle form submission logic here"""
@@ -56,4 +65,11 @@ def register():
         flash("User Created Successfully", "success")
         # Rediect to Loggin Page
         return redirect(url_for('user.login'))
+    flash("Fill in all fields", "success")
     return render_template('register.html', form=form)
+
+@user.route("/logout")
+@login_required
+def logout():
+    logout_user()
+    return redirect(url_for('user.login'))

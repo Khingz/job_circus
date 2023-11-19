@@ -44,7 +44,8 @@
                 <div class="form-group">
                     {{ form.submit(class="submit") }}
                 </div>
-            </form> 
+            </form>
+            <p>Already have an Account <a href="{{ url_for('user.login') }}">Login</a></p>
         </div>
     </div>
 {% endblock %}
