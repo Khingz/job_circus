@@ -25,7 +25,6 @@ def login():
         password = form.password.data
         user = storage.get_email(User, email)
         if user and bcrypt.check_password_hash(user.password, password):
-            print('loggedin')
             login_user(user)
             return redirect(url_for('job.dashboard'))
     return render_template('login.html', form=form)
