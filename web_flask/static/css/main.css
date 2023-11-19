@@ -1,0 +1,21 @@
+@import url('variables.css');
+
+
+/* Global styles */
+
+body {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: var(--main-font);
+    background-color: var(--bg-color);
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+}

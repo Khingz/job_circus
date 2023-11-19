@@ -29,6 +29,28 @@ class DBStorage:
                                              MYSQL_HOST,
                                              MYSQL_DB))
    
+    def all(self, cls=None):
+        """returns a dictionary
+        Return:
+            returns a dictionary of __object
+        """
+        dic = {}
+        if cls:
+            if type(cls) is str:
+                cls = eval(cls)
+            query = self.__session.query(cls)
+            for elem in query:
+                key = "{}.{}".format(type(elem).__name__, elem.id)
+                dic[key] = elem
+        else:
+            lista = [Job, Application, User]
+            for clase in lista:
+                query = self.__session.query(clase)
+                for elem in query:
+                    key = "{}.{}".format(type(elem).__name__, elem.id)
+                    dic[key] = elem
+        return (dic)
+    
     def save(self):
         """commit all changes of the current database session"""
         self.__session.commit()
@@ -66,4 +88,30 @@ class DBStorage:
             if (value.id == id):
                 return value
 
+        return None
+    
+    def get_email(self, cls, email):
+        """
+        Returns the object based on the email
+        None if not found
+        """
+        if cls not in classes.values():
+            return None
+        all_cls = models.storage.all(cls)
+        for value in all_cls.values():
+            if (value.email == email):
+                return value
+        return None
+    
+    def get_username(self, cls, username):
+        """
+        Returns the object based on the username or
+        None if not found
+        """
+        if cls not in classes.values():
+            return None
+        all_cls = models.storage.all(cls)
+        for value in all_cls.values():
+            if (value.username == username):
+                return value
         return None

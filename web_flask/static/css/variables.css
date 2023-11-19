@@ -1,0 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
+
+:root {
+    --primary-color: #4E7FFD;
+    --hover-color: #3e6bdb;;
+    --dark-grey: #B1AEAE;
+    --light-grey: #ECEBEB;
+    --white: #f9f4f4;
+    --red: #CD2B07;
+    --bg-color: #F6F4F4;
+    --main-font: 'Righteous', sans-serif;
+    --black: rgb(31, 31, 31);
+}

@@ -1,0 +1,119 @@
+@import url('variables.css');
+
+/* Header Section Begin */
+header {
+    width: 100%;
+    padding: 1.5rem 0;
+    /* height: 10vh; */
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    margin: 0 auto;
+}
+
+nav .brand {
+    color: var(--black);
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+nav .brand a {
+    color: var(--primary-color);
+}
+
+nav .brand span {
+    height: 300px;
+    width: 300px;
+    border-radius: 50%;
+    background-color: var(--primary-color);
+    color: var(--white);
+    margin-right: 0.2rem;
+    padding: 0.5rem 0.6rem;
+}
+
+nav .user-section {
+    display: flex;
+    align-items: start;
+    align-items: center;
+    gap: 1.8rem;
+}
+
+nav .user-section span {
+    border-radius: 50%;
+    width: 100%;
+    border: solid 2px var(--primary-color);
+    color: var(--primary-color);
+    margin-right: 0.7rem;
+    padding: 0.5rem 0.8rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+nav .user-section .user-name a {
+    color: var(--primary-color);
+    transition: ease-in-out 0.8s;
+}
+
+nav .user-section .user-name a:hover {
+    border-bottom: solid 3px var(--primary-color);
+    padding-bottom: 0.3rem;
+}
+
+nav .user-section .login-logout a {
+    background-color: var(--primary-color);
+    color: var(--white);
+    font-family: var(--main-font);
+    padding: 0.5rem 1.5rem;
+    border-radius: 0.5rem;
+    border-color: var(--primary-color);
+    cursor: pointer;
+    border: none;
+    text-decoration: none;
+}
+
+nav .user-section .login-logout a:hover {
+    background-color: var(--hover-color);
+
+}
+
+/* Header Section End */
+
+/* main section start */
+main {
+    min-height: 80vh;
+}
+/* main section end  */
+
+
+/* Footer Section Begin */
+footer {
+    width: 100%;
+    padding: 0.2rem 0;
+    background-color: var(--primary-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top: solid 2px white;
+    color: white;
+    height: 10vh;
+}
+/* Footer Section End */
+
+
+/* Media Query  */
+@media screen and (max-width: 600px) {
+    header {
+       border-bottom: solid 1px var(--primary-color);
+    }
+
+    nav {
+        flex-direction: column;
+        justify-content: center;
+        gap: 1.5rem;
+    }
+}
+/* End of media Query  */
