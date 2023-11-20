@@ -17,7 +17,7 @@ user = Blueprint('user', __name__)
 def login():
     """Login route"""
     if current_user.is_authenticated:
-        return redirect(url_for('job.dashboard'))
+        return redirect(url_for('job.home'))
     form = LoginForm()
     if form.validate_on_submit():
         # Handle form submission logic here
@@ -26,14 +26,15 @@ def login():
         user = storage.get_email(User, email)
         if user and bcrypt.check_password_hash(user.password, password):
             login_user(user)
-            return redirect(url_for('job.dashboard'))
+            return redirect(url_for('job.home'))
     return render_template('login.html', form=form)
+
 
 @user.route('/register', methods=['GET', 'POST'], endpoint='register')
 def register():
     """Register route"""
     if current_user.is_authenticated:
-        return redirect(url_for('job.dashboard'))
+        return redirect(url_for('job.home'))
     form = RegisterForm()
     if form.validate_on_submit():
         """Handle form submission logic here"""
@@ -66,6 +67,7 @@ def register():
         return redirect(url_for('user.login'))
     flash("Fill in all fields", "success")
     return render_template('register.html', form=form)
+
 
 @user.route("/logout")
 @login_required

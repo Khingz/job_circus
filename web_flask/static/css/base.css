@@ -55,11 +55,11 @@ nav .user-section span {
 
 nav .user-section .user-name a {
     color: var(--primary-color);
-    transition: ease-in-out 0.8s;
+    transition: ease-in-out 1s;
 }
 
 nav .user-section .user-name a:hover {
-    border-bottom: solid 3px var(--primary-color);
+    border-bottom: solid 2px var(--primary-color);
     padding-bottom: 0.3rem;
 }
 
