@@ -5,8 +5,14 @@ from flask_login import login_required, current_user
 job = Blueprint('job', __name__)
 
 
-@job.route('/dashboard', methods=['GET', 'POST'], endpoint='dashboard')
+@job.route('/', methods=['GET', 'POST'])
+def home():
+    """home route"""
+    return render_template('home.html')
+
+
+@job.route('/protected', methods=['GET', 'POST'])
 @login_required
-def dashboard():
-    """Dashboard"""
-    return render_template('dashboard.html')
+def protected():
+    """protected"""
+    return render_template('protected.html')

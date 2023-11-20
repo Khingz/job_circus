@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block styles %}
+    <!-- Link specific CSS styles for the login page -->
+    <link rel="stylesheet" href="../static/css/home.css">
+{% endblock %}
+{% block title %}Login{% endblock %}
+{% block content %}
+    <div class="home-container">
+        <div class="hero-section">
+            <div class="hero-right">
+                <h2>GET THE <br>RIGHT JOB<br> YOU <span>DESERVE</span></h2>
+                <form action="" method="get">
+                    <input type="text" id="search" name="search" placeholder="Search Job">
+                    <button type="submit">Search</button>
+                </form>
+            </div>
+            <div class="hero-left">
+                <img src="../static/image/hero image.jpg" alt="hero-image">
+            </div>
+        </div>
+        <div class="post-hero-section">
+            <p>THOUSANDS OF JOB SEEKERS GETTING JOBS DAILY</p>
+        </div>
+        <div class="featured-job-section">
+            <h2>FEATURED JOBS</h2>
+            <div class="job-listing">
+                <div class="job-card"></div>
+            </div>
+        </div>
+        <div class="job-listing-section">
+            <h2>JOB LISTING</h2>
+            <div class="job-listing">
+                <div class="job-card"></div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

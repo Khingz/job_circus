@@ -1,0 +1,81 @@
+@import url('variables.css');
+
+.home-container {
+    min-height: 80vh;
+    width: 100%;
+    margin: 2rem auto;
+}
+
+/* Begining of hero section  */
+.home-container .hero-section {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+
+.home-container .hero-section .hero-right {
+    width: 50%;
+    margin-top: -1rem;
+    padding: 0 1rem 0 4rem;
+}
+
+.home-container .hero-section .hero-right h2 {
+    font-size: 4rem;
+    margin: 0;
+}
+
+.home-container .hero-section .hero-right h2 span {
+    color: var(--primary-color);
+}
+
+.home-container .hero-section .hero-left {
+    width: 50%;
+}
+
+.home-container .hero-section form {
+    width: 100%;
+    margin-top: 1rem;
+}
+
+.home-container .hero-section form input {
+    font-family: var(--primary-color);
+    background-color: var(--white);
+    color: var(--dark-grey);
+    border: solid 1px var(--light-grey);
+    padding: 0.5rem 0.5rem 0.5rem 1rem;
+    border-radius: 5%;
+    width: 50%;
+}
+
+.home-container .hero-section form input::placeholder {
+    color: var(--dark-grey);
+}
+
+.home-container .hero-section form button {
+    background-color: var(--primary-color);
+    font-family: var(--main-font);
+    color: var(--white);
+    border: none;
+    padding: 0.55rem 1rem;
+    border-radius: 5%;
+    cursor: pointer;
+    transition: 1s ease-in-out;
+}
+
+.home-container .hero-section form button:hover {
+    background-color: var(--hover-color);
+}
+
+/* End of Hero section */
+
+/* Begining of post hero section  */
+.home-container .post-hero-section {
+    background-color: var(--primary-color);
+    color: var(--white);
+    padding: 0.5rem 0;
+    text-align: center;
+    margin-top: -1rem;
+    position: relative;
+    z-index: 1;
+}
+/* End of post hero section  */

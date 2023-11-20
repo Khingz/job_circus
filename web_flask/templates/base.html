@@ -12,7 +12,7 @@
     <header>
         <nav>
             <div class="brand">
-                <a href=""><div class="logo"><span>JC</span>JOBCIRCUS</div></a>
+                <a href="{{ url_for('job.home') }}"><div class="logo"><span>JC</span>JOBCIRCUS</div></a>
             </div>
             <div class="user-section">
                 {% if current_user.is_authenticated %}

@@ -16,11 +16,18 @@ login_manager = LoginManager(app)
 
 
 
+# Custom 404 error handler
+@app.errorhandler(404)
+def page_not_found(error):
+    return render_template('404.html'), 404
+
+# Login manager for flas login
 @login_manager.user_loader
 def load_user(user_id):
     """Loads user based on id"""
     return storage.get(User, user_id)
 
+# Redirection for unathorized page for non logged in user
 @login_manager.unauthorized_handler
 def unauthorized():
     """Handles edirection for protected routes"""
