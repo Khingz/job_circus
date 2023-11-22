@@ -1,7 +1,11 @@
 {% extends "base.html" %}
+{% block styles %}
+    <!-- Link specific CSS styles for the login page -->
+    <link rel="stylesheet" href="../static/css/404.css">
+{% endblock %}
 {% block title %}Login{% endblock %}
 {% block content %}
-    <div class="404_container">
-        <h2>404 Page not found</h2>
+    <div class="not-found-container">
+        <img src="../static/image/404.svg" alt="">
     </div>
 {% endblock %}

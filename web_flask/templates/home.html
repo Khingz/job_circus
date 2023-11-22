@@ -21,16 +21,33 @@
         <div class="post-hero-section">
             <p>THOUSANDS OF JOB SEEKERS GETTING JOBS DAILY</p>
         </div>
-        <div class="featured-job-section">
-            <h2>FEATURED JOBS</h2>
-            <div class="job-listing">
-                <div class="job-card"></div>
+        <div class="job-type-section">
+            <div class="part-time job-type">
+                <div class="job-type-circle"></div>
+                <h3>PARTIME JOBS</h3>
+                <p>Looking for a part time job? Discover part-time roles that fit your schedule, skills and aspirations.</p>
+                <button>View All</button>
             </div>
+            <div class="fulltime job-type">
+                <div class="job-type-circle"></div>
+                <h3>FULLTIME JOBS</h3>
+                <p>Looking for a full time job? Explore exciting opportunities that align with your skills and ambitions.</p>
+                <button>View All</button>
+            </div>
+        </div>
+        <div class="post-hero-section">
+            <p></p>
         </div>
         <div class="job-listing-section">
             <h2>JOB LISTING</h2>
             <div class="job-listing">
-                <div class="job-card"></div>
+                <!-- Include the card component -->
+                {% for card in cards %}
+                {% include 'card.html' %}
+                {% endfor %}
+            </div>
+            <div class="view-all-job">
+                <button>View all Jobs</button>
             </div>
         </div>
     </div>

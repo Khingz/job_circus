@@ -9,6 +9,7 @@ body {
     box-sizing: border-box;
     font-family: var(--main-font);
     background-color: var(--bg-color);
+    color: var(--black);
 }
 
 ul {

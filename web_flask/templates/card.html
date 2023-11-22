@@ -1,0 +1,22 @@
+{% block styles %}
+    <!-- Link specific CSS styles for the card page -->
+    <link rel="stylesheet" href="../static/css/card.css">
+    {% endblock %}
+<div class="job-card">
+    <div class="card-header">
+        <p>SA</p>
+        <span>Jan 1</span>
+    </div>
+    <div class="card-body">
+        <h3 class="card-title">{{ card.title }}</h3>
+        <p class="card-description">{{ card.description }}</p>
+    </div>
+    <div class="card-view-buttons">
+        <button class="view-btn">View</button>
+        <button class="apply-btn">Apply</button>
+    </div>
+    <div class="card-delete-btn">
+        <button class="edit-btn">Update</button>
+        <button class="delete-btn">Delete</button>
+    </div>
+</div>
