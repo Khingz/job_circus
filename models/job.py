@@ -11,7 +11,7 @@ class Job(BaseModel, Base):
     __tablename__ = 'jobs'
     user_id = Column(String(60), ForeignKey("users.id"), nullable=False)
     title = Column(String(128), nullable=True)
-    description = Column(String(128), nullable=True)
+    description = Column(String(1000), nullable=True)
     location = Column(String(128), nullable=False)
     salary = Column(String(128), nullable=False)
     requirements = Column(String(128), nullable=False)

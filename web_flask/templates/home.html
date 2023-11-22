@@ -50,5 +50,11 @@
                 <button>View all Jobs</button>
             </div>
         </div>
+        <!-- Add post button  -->
+        {% if current_user and current_user.role == 'Employer' %}
+        <div class="add-post-home-btn">
+            <button>+</button>
+        </div>
+        {% endif %}
     </div>
 {% endblock %}

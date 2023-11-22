@@ -8,7 +8,7 @@ from wtforms.validators import InputRequired, Length
 class LoginForm(FlaskForm):
     """Class extended from flask wtf for form login"""
     email = StringField('Username', validators=[InputRequired(),
-                                             Length(min=4, max=15)])
+                                             Length(min=4, max=100)])
     password = PasswordField('Password', validators=[InputRequired(),
                                              Length(min=4, max=100)])
     submit = SubmitField('Login')
