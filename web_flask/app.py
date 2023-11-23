@@ -33,6 +33,11 @@ def unauthorized():
     """Handles edirection for protected routes"""
     return redirect(url_for('user.login'))
 
+@app.teardown_appcontext
+def close_db(error):
+    """ Remove the current SQLAlchemy Session and start a new session for each request"""
+    storage.close()
+
 
 app.register_blueprint(user, url_prefix='/')
 app.register_blueprint(job, url_prefix='/')

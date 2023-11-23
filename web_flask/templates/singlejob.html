@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block styles %}
+    <!-- Link specific CSS styles for the single job page -->
+    <link rel="stylesheet" href="../static/css/singlejob.css">
+{% endblock %}
+{% block title %}Login{% endblock %}
+{% block content %}
+    <div class="singlejob-container">
+        <h2>Single Job</h2>
+        <p>{{ job.id }}</p> 
+        <p>{{ job.description }}</p>
+        <p>{{ job.title }}</p>
+        <p>{{ job.requirements }}</p>
+    </div>
+{% endblock %}

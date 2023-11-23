@@ -147,20 +147,22 @@
 .home-container .job-listing-section .view-all-job {
     width: 100%;
     text-align: center;
+    margin-top: 2rem;
 }
 
-.home-container .job-listing-section .view-all-job button {
+.home-container .job-listing-section .view-all-job a {
     background: none;
     border: solid 1px var(--primary-color);
     color: var(--primary-color);
-    padding: 0.5rem 1.5rem;
+    padding: 0.3rem 1.5rem;
     cursor: pointer;
     font-family: var(--main-font);
-    margin: 2rem auto 0 auto;
+    /* margin: 2rem auto 0 auto; */
     transition: ease-in-out 0.3s;
+
 }
 
-.home-container .job-listing-section .view-all-job button:hover {
+.home-container .job-listing-section .view-all-job a:hover {
     transform: scale(1.05);
 }
 /* Job listing ends  */
@@ -175,17 +177,22 @@
     z-index: 2;
 }
 
-.home-container .add-post-home-btn button {
-    height: 5rem;
-    width: 5rem;
+.home-container .add-post-home-btn a {
+    /* height: 5rem;
+    width: 5rem; */
     background-color: var(--primary-color);
     color: var(--white);
-    font-size: 4rem;
+    font-size: 3rem;
     font-family: var(--main-font);
     border: none;
-    /* padding: 1rem; */
+    padding: 0.2rem 1.3rem;
     border-radius: 50%;
     border: solid 2px var(--white);
+}
+
+.no-job {
+    font-size: 2rem;
+    color: var(--primary-color);
 }
 
 

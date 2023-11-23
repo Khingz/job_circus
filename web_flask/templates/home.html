@@ -42,18 +42,22 @@
             <h2>JOB LISTING</h2>
             <div class="job-listing">
                 <!-- Include the card component -->
+                {% if cards %}
                 {% for card in cards %}
                 {% include 'card.html' %}
                 {% endfor %}
+                {% else %}
+                <p class="no-job">NO JOB AT THE MOMENT, PLEASE CHECK BACK LATER</p>
+                {% endif %}
             </div>
             <div class="view-all-job">
-                <button>View all Jobs</button>
+                <a href="{{ url_for('job.all_jobs') }}">View All</a>
             </div>
         </div>
         <!-- Add post button  -->
         {% if current_user and current_user.role == 'Employer' %}
         <div class="add-post-home-btn">
-            <button>+</button>
+            <a href="{{ url_for('job.post_job') }}">+</a>
         </div>
         {% endif %}
     </div>

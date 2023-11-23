@@ -23,7 +23,7 @@
     border-radius: 50%;
   }
 
-  .job-card button {
+  .job-card button, .job-card a {
     padding: 0.2rem 0.7rem;
     font-family: var(--main-font);
     cursor: pointer;
@@ -46,14 +46,14 @@
     border-radius: 0.2rem;
   }
 
-.job-card button.delete-btn {
+.job-card form .delete-btn {
     background-color: var(--red);
     color: var(--white);
     border-radius: 0.2rem;
     border: none;
   }
 
-.job-card button.view-btn {
+.job-card a.view-btn {
     background-color: var(--primary-color);
     color: var(--white);
     border: none;
