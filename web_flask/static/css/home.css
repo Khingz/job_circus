@@ -4,6 +4,7 @@
     min-height: 80vh;
     width: 100%;
     margin: 2rem auto;
+    position: relative;
 }
 
 /* Begining of hero section  */
@@ -164,6 +165,28 @@
 }
 /* Job listing ends  */
 
+
+
+/* Add post button  */
+.home-container .add-post-home-btn {
+    position: fixed;
+    bottom: 20%;
+    right: 5%;
+    z-index: 2;
+}
+
+.home-container .add-post-home-btn button {
+    height: 5rem;
+    width: 5rem;
+    background-color: var(--primary-color);
+    color: var(--white);
+    font-size: 4rem;
+    font-family: var(--main-font);
+    border: none;
+    /* padding: 1rem; */
+    border-radius: 50%;
+    border: solid 2px var(--white);
+}
 
 
 /* Media Query For Smaller Screens */

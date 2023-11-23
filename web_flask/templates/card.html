@@ -4,8 +4,8 @@
     {% endblock %}
 <div class="job-card">
     <div class="card-header">
-        <p>SA</p>
-        <span>Jan 1</span>
+        <p>{{ card.username[0:2].upper() }}</p>
+        <span>{{ card.created_at }}</span>
     </div>
     <div class="card-body">
         <h3 class="card-title">{{ card.title }}</h3>
@@ -15,8 +15,10 @@
         <button class="view-btn">View</button>
         <button class="apply-btn">Apply</button>
     </div>
+    {% if current_user and current_user.id == card.user_id %}
     <div class="card-delete-btn">
         <button class="edit-btn">Update</button>
         <button class="delete-btn">Delete</button>
     </div>
+    {% endif %}
 </div>
