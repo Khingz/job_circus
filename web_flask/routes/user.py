@@ -54,7 +54,6 @@ def register():
             return redirect(url_for('user.register'))
         # Check if the username already exist
         existing_username = storage.get_username(User, data['username'])
-        print(existing_username)
         if existing_username:
             flash('Username is already registered. Please use a different username.', 'danger')
             return redirect(url_for('user.register'))

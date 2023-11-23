@@ -4,6 +4,7 @@
     min-height: 80vh;
     width: 100%;
     margin: 2rem auto;
+    position: relative;
 }
 
 /* Begining of hero section  */
@@ -43,7 +44,8 @@
     color: var(--dark-grey);
     border: solid 1px var(--light-grey);
     padding: 0.5rem 0.5rem 0.5rem 1rem;
-    border-radius: 5%;
+    border-radius: 0.5rem;
+    border-width: 2px;
     width: 50%;
 }
 
@@ -57,7 +59,7 @@
     color: var(--white);
     border: none;
     padding: 0.55rem 1rem;
-    border-radius: 5%;
+    border-radius: 0.3rem;
     cursor: pointer;
     transition: 1s ease-in-out;
 }
@@ -74,8 +76,162 @@
     color: var(--white);
     padding: 0.5rem 0;
     text-align: center;
-    margin-top: -1rem;
+    /* margin-top: -1rem; */
     position: relative;
     z-index: 1;
 }
 /* End of post hero section  */
+
+/* Job type section begins  */
+.home-container .job-type-section {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+    margin: 3rem auto;
+}
+
+.home-container .job-type-section .job-type {
+    width: 20%;
+    background-color: var(--white);
+    padding: 1.5rem;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    border-radius: 0.5rem;
+    min-height: 250px;
+}
+
+.home-container .job-type-section .job-type .job-type-circle {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    background-color: var(--dark-grey);
+}
+
+.home-container .job-type-section .job-type button {
+    background: var(--white);
+    border: solid 1px var(--dark-grey);
+    border-radius: 0.5rem;
+    padding: 0.5rem 0.7rem;
+    cursor: pointer;
+    transition: ease-in-out 0.3s;
+}
+
+.home-container .job-type-section .job-type button:hover {
+    transform: scale(1.05);
+}
+/* Job type section ends  */
+
+/* Job listing begins  */
+.home-container .job-listing-section {
+    width: 90%;
+    margin: 3rem auto;
+}
+
+.home-container .job-listing-section h2 {
+    color: var(--primary-color);
+    border-bottom: 1px solid var(--primary-color);
+    padding-bottom: 0.7rem;
+    margin-bottom: 3rem;
+}
+
+.home-container .job-listing-section .job-listing {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem; /* Adjust the gap between cards */
+    justify-content: center;
+    min-width: 50%; /* Set a maximum width for the container if needed */
+    margin: 0 auto; /* Center the container */
+}
+
+.home-container .job-listing-section .view-all-job {
+    width: 100%;
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.home-container .job-listing-section .view-all-job a {
+    background: none;
+    border: solid 1px var(--primary-color);
+    color: var(--primary-color);
+    padding: 0.3rem 1.5rem;
+    cursor: pointer;
+    font-family: var(--main-font);
+    /* margin: 2rem auto 0 auto; */
+    transition: ease-in-out 0.3s;
+
+}
+
+.home-container .job-listing-section .view-all-job a:hover {
+    transform: scale(1.05);
+}
+/* Job listing ends  */
+
+
+
+/* Add post button  */
+.home-container .add-post-home-btn {
+    position: fixed;
+    bottom: 20%;
+    right: 5%;
+    z-index: 2;
+}
+
+.home-container .add-post-home-btn a {
+    /* height: 5rem;
+    width: 5rem; */
+    background-color: var(--primary-color);
+    color: var(--white);
+    font-size: 3rem;
+    font-family: var(--main-font);
+    border: none;
+    padding: 0.2rem 1.3rem;
+    border-radius: 50%;
+    border: solid 2px var(--white);
+}
+
+.no-job {
+    font-size: 2rem;
+    color: var(--primary-color);
+}
+
+
+/* Media Query For Smaller Screens */
+@media screen and (max-width: 600px) {
+    .home-container .hero-section {
+        flex-direction: column;
+    }
+
+    .home-container .hero-section .hero-right {
+        width: 100%;
+        margin-bottom: 2rem;
+    }
+
+    .home-container .hero-section .hero-right h2 {
+        font-size: 2rem;
+    }
+
+    .home-container .hero-section .hero-left {
+        width: 100%;
+    }
+
+    .home-container .job-type-section {
+        flex-direction: column;
+    }
+
+    .home-container .job-type-section .job-type {
+        width: 60%;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .home-container .hero-section .hero-right h2 {
+        font-size: 2rem;
+    }
+
+    .home-container .post-hero-section {
+        padding: 0.1rem;
+        margin-top: 0rem;
+        font-size: 0.9rem;
+    }
+}
