@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
 """User routes"""
 from flask import Blueprint, render_template, redirect, url_for, flash
 from forms.login import LoginForm
@@ -6,6 +6,7 @@ from forms.register import RegisterForm
 from flask_bcrypt import Bcrypt
 from models.user import User
 from models import storage
+
 from flask_login import login_user, current_user, login_required, logout_user
 
 
