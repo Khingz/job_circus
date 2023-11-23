@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
 """Main app file where Flask app is defined and configure"""
 from flask import Flask, render_template, redirect, url_for
 from routes.user import user
@@ -7,6 +7,9 @@ from flask_bcrypt import Bcrypt
 from flask_login import LoginManager
 from models.user import User
 from models import storage
+
+import sys
+print(sys.path)
 
 
 app = Flask(__name__)
