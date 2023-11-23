@@ -45,7 +45,7 @@ def post_job():
     form = PostJobForm()
     if form.validate_on_submit():
         """Handle form submission logic here"""
-        # extract data from form
+        # extract data from form and add user_id
         data = {
             "title": form.title.data,
             "description": form.description.data,
