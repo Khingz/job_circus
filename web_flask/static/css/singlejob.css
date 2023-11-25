@@ -1,0 +1,25 @@
+@import url('variables.css');
+
+.singlejob-container {
+    width: 70%;
+    margin: 2rem auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 0.5rem;
+    background-color: var(--white);
+    color: var(--black);
+    padding: 1rem 1.5rem;
+}
+
+.singlejob-container .singlejob-title {
+    width: 40%;
+    font-size: 4rem;
+    border-right: solid 2px var(--light-grey);
+}
+
+.singlejob-container .singlejob-details {
+    width: 60%;
+}
