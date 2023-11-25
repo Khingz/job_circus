@@ -57,7 +57,15 @@ class DBStorage:
 
     def new(self, obj):
         """add the object to the current database session"""
-        self.__session.add(obj)
+        if isinstance(obj, User):
+        # Ensure that first_name and last_name are not None
+            if obj.first_name is not None and obj.last_name is not None:
+                self.__session.add(obj)
+            else:
+            # Handle the case where first_name or last_name is None
+                raise ValueError("Both first_name and last_name must be provided for a new User.")
+        else:
+            self.__session.add(obj)
 
     def delete(self, obj=None):
         """delete from the current database session obj if not None"""
