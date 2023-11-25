@@ -84,7 +84,7 @@ def post_job():
         # Save User in database
         new_job.save()
         flash("Job Created Successfully", "success")
-        # Rediect to Loggin Page
+        # Rediect to Login Page
         return redirect(url_for('job.home'))
     flash("Fill in all fields", "success")
     return render_template('postform.html', form=form)
