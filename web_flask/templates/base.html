@@ -17,7 +17,7 @@
             <div class="user-section">
                 {% if current_user.is_authenticated %}
                 <div class="user-name">
-                    <a href=""><div class="user-img"><span>{{ current_user.username[0] }}</span>{{ current_user.username }}</div></a>
+                    <a href=""><div class="user-img"><span>{{ current_user.username[0].upper() }}</span>{{ current_user.username.upper() }}</div></a>
                 </div>
                 <div class="login-logout">
                     <a href="{{ url_for('user.logout') }}">Logout</a>

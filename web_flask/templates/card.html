@@ -9,7 +9,7 @@
     </div>
     <div class="card-body">
         <h3 class="card-title">{{ card.title }}</h3>
-        <p class="card-description">{{ card.description }}</p>
+        <p class="card-description">{{ card.description[:100] + '...' }}</p>
     </div>
     <div class="card-view-buttons">
         <a href="{{ url_for('job.single_job', job_id=card.id) }}" class="view-btn">Details</a>

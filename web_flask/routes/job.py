@@ -11,7 +11,7 @@ import sys
 job = Blueprint('job', __name__)
 
 
-@job.route('/', methods=['GET', 'POST'], strict_slashes=False)
+@job.route('/', methods=['GET'], strict_slashes=False)
 def home():
     """home route"""
     jobs_data = []
@@ -26,10 +26,6 @@ def home():
                 'id': job.id,
                 'title': job.title,
                 'description': job.description,
-                'location': job.location,
-                'salary': job.salary,
-                'requirements': job.requirements,
-                'deadline': job.deadline,
                 'created_at': job.created_at.strftime("%B %d"),
                 'username': user.username,
                 'user_id': job.user_id
@@ -45,6 +41,7 @@ def all_jobs():
     jobs = storage.all(Job).values()
     for job in jobs:
         user = storage.get(User, job.user_id)
+        # extract data from form and add user_id
         if user:
             job_data = {
                 'id': job.id,
@@ -62,14 +59,13 @@ def all_jobs():
     return render_template('jobs.html', cards=jobs_data)
 
 
-@job.route('/job/create', methods=['GET', 'POST'], strict_slashes=False)
+@job.route('/job/create', methods=['POST', 'GET'])
 @login_required
 def post_job():
     """Post job route"""
     form = PostJobForm()
     if form.validate_on_submit():
         """Handle form submission logic here"""
-        # extract data from form and add user_id
         data = {
             "title": form.title.data,
             "description": form.description.data,
@@ -77,6 +73,7 @@ def post_job():
             "salary": form.salary.data,
             "requirements": form.requirements.data,
             "deadline": form.deadline.data,
+            "type": form.type.data,
             "user_id": current_user.id
         }
         # Create new User
@@ -95,7 +92,8 @@ def single_job(job_id):
     """Single Job route - displays a single job"""
     job = storage.get(Job, job_id)
     if job:
-        return render_template('singlejob.html', job=job)
+        user = storage.get(User, job.user_id)
+        return render_template('singlejob.html', job=job, user=user)
     else:
         return render_template('404.html')
 

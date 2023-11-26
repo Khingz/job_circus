@@ -42,8 +42,8 @@ def register():
         # extract data from form
         data = {
             "username": form.username.data,
-            "firstname": form.firstname.data,
-            "lastname": form.lastname.data,
+            "first_name": form.firstname.data,
+            "last_name": form.lastname.data,
             "password": bcrypt.generate_password_hash(form.password.data).decode('utf-8'),
             "email": form.email.data,
             "role": form.role.data
