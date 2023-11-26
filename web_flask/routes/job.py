@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-from flask import Blueprint, render_template, redirect, url_for, flash
+from flask import Blueprint, request, render_template, redirect, url_for, flash
 from flask_login import login_required, current_user
 from forms.post_job import PostJobForm
 from models.job import Job
@@ -34,11 +34,15 @@ def home():
     return render_template('home.html', cards=jobs_data)
 
 
-@job.route('/jobs', methods=['GET'], strict_slashes=False)
+@job.route('/jobs', methods=['GET', 'POST'], strict_slashes=False)
 def all_jobs():
     """List all jobs"""
     jobs_data = []
-    jobs = storage.all(Job).values()
+    keyword = request.args.get('search', '')
+    if not keyword:
+        jobs = storage.all(Job).values()
+    else:
+        jobs = storage.search(Job, keyword).values()
     for job in jobs:
         user = storage.get(User, job.user_id)
         # extract data from form and add user_id
@@ -56,7 +60,7 @@ def all_jobs():
                 'user_id': job.user_id
             }
         jobs_data.append(job_data)
-    return render_template('jobs.html', cards=jobs_data)
+    return render_template('jobs.html', cards=jobs_data, search=keyword)
 
 
 @job.route('/job/create', methods=['POST', 'GET'])
