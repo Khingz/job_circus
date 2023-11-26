@@ -1,0 +1,25 @@
+u = {
+    'username': 'example_username',
+    'email': 'example@example.com',
+    'password': 'example_password',
+    'first_name': 'John',
+    'last_name': 'Doe',
+    'role': 'Employer'
+}
+
+j = {
+    'user_id': 'user1',
+    'title': 'Software Engineer',
+    'description': 'Develop web applications',
+    'location': 'San Francisco',
+    'salary': '100000',
+    'requirements': 'Python, JavaScript',
+    'deadline': '2023-12-31 23:59:59'
+}
+
+a = {
+    'id': 'app1',
+    'user_id': 'user1',
+    'job_id': 'job1',
+    'cover_letter': 'I am interested in this position.'
+}

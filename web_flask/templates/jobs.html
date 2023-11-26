@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block styles %}
+    <!-- Link specific CSS styles for the homapage page  - this page share styling with job section of hompage - home.css  -->
+    <link rel="stylesheet" href="../static/css/home.css">
+{% endblock %}
+{% block title %}Login{% endblock %}
+{% block content %}
+    <div class="home-container">
+        <div class="job-listing-section">
+            <h2>JOBS LISTING</h2>
+            <div class="job-listing">
+                <!-- Include the card component -->
+                {% if cards %}
+                {% for card in cards %}
+                {% include 'card.html' %}
+                {% endfor %}
+                {% else %}
+                <p class="no-job">NO JOB AT THE MOMENT, PLEASE CHECK BACK LATER</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

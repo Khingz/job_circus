@@ -1,0 +1,61 @@
+@import url('variables.css');
+
+.job-card {
+    width: 15rem; /* Set a fixed width for the card */
+    max-width: 100%; /* Ensure the card is not wider than the viewport */
+    padding: 1.5rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 0.5rem;
+    background-color: var(--white);
+    color: var(--black);
+  }
+
+  .job-card .card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .job-card .card-header p {
+    background-color: var(--primary-color);
+    padding: 1rem;
+    color: var(--white);
+    border-radius: 50%;
+  }
+
+  .job-card button, .job-card a {
+    padding: 0.2rem 0.7rem;
+    font-family: var(--main-font);
+    cursor: pointer;
+  }
+
+  .job-card .card-view-buttons, .job-card .card-delete-btn {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .job-card .card-view-buttons {
+    margin-bottom: 0.5rem;
+  }
+
+  .job-card button.apply-btn, .job-card button.edit-btn {
+    background-color: var(--white);
+    color: var(--primary-color);
+    border: solid 1px var(--primary-color);
+    border-radius: 0.2rem;
+  }
+
+.job-card form .delete-btn {
+    background-color: var(--red);
+    color: var(--white);
+    border-radius: 0.2rem;
+    border: none;
+  }
+
+.job-card a.view-btn {
+    background-color: var(--primary-color);
+    color: var(--white);
+    border: none;
+    border-radius: 0.2rem;
+}
