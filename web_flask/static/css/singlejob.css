@@ -1,5 +1,11 @@
 @import url('variables.css');
 
+.singlejob {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .singlejob-container {
     width: 70%;
     margin: 2rem auto;
@@ -11,7 +17,7 @@
     border-radius: 0.5rem;
     background-color: var(--white);
     color: var(--black);
-    padding: 1rem 1.5rem;
+    padding: 1.5rem 1.8rem;
 }
 
 .singlejob-container .singlejob-title {
@@ -22,4 +28,97 @@
 
 .singlejob-container .singlejob-details {
     width: 60%;
+}
+
+.singlejob-details .details-header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.singlejob-details .details-header .header-user span{
+    font-style: italic;
+    color: var(--dark-grey);
+}
+
+.singlejob-details .details-salary {
+    font-size: 2rem;
+    color: var(--primary-color);
+}
+
+.singlejob-container .details-tags {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 1rem;
+}
+
+.singlejob-container .details-tags p {
+    background-color: var(--light-grey);
+    color: var(--dark-grey);
+    padding: 0.3rem 1rem;
+    margin-bottom: -0.3rem;
+}
+
+.singlejob-container .button-container {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 1rem;
+}
+
+.singlejob-container .button-container form button,
+.singlejob-container .button-container a {
+    background: none;
+    border: solid 1px var(--primary-color);
+    font-family: var(--main-font);
+    padding: 0.5rem 1rem;
+    color: var(--black);
+    border-radius: 0.5rem;
+}
+
+.singlejob-container .button-container form button {
+    border-color: var(--red);
+    background-color: var(--red);
+    color: var(--white);
+}
+
+.singlejob-container .details-requirement {
+    margin-bottom: 2rem;
+}
+
+.singlejob-container .details-requirement h4 {
+    margin-bottom: -0.3rem;
+}
+
+
+
+/* Media query  */
+@media screen and (max-width: 1000px) {
+    .singlejob-container {
+        width: 80%;
+    }
+
+    .singlejob-container .singlejob-title {
+        font-size: 2rem;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .singlejob-container {
+        flex-direction: column;
+        width: 85%;
+    }
+
+    .singlejob-container .singlejob-title {
+        border-right: none;
+        border-bottom: solid 2px var(--light-grey);
+    }
+
+    .singlejob-container .singlejob-title {
+        width: 80%;
+    }
+    
+    .singlejob-container .singlejob-details {
+        width: 80%;
+    }
 }

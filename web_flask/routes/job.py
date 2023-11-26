@@ -59,7 +59,7 @@ def all_jobs():
     return render_template('jobs.html', cards=jobs_data)
 
 
-@job.route('/job/create', methods=['POST'], strict_slashes=False)
+@job.route('/job/create', methods=['POST', 'GET'])
 @login_required
 def post_job():
     """Post job route"""
@@ -91,8 +91,8 @@ def post_job():
 def single_job(job_id):
     """Single Job route - displays a single job"""
     job = storage.get(Job, job_id)
-    user = storage.get(User, job.user_id)
     if job:
+        user = storage.get(User, job.user_id)
         return render_template('singlejob.html', job=job, user=user)
     else:
         return render_template('404.html')
