@@ -115,3 +115,53 @@ class DBStorage:
             if (value.username == username):
                 return value
         return None
+    
+    # def search(self, cls=None, keyword=None):
+    #     """Search based on keyword"""
+    #     if cls not in classes.values():
+    #         return None
+    #     dic = {}
+    #     if keyword:
+    #         all_cls = models.storage.all(cls)
+    #         if keyword.lower() in ["partime", "fulltime"]:
+    #             for value in all_cls.values():
+    #                 if (value.type == keyword):
+    #                     key = "{}.{}".format(type(value).__name__, value.id)
+    #                     dic[key] = value
+    #             return (dic)
+    #         for value in all_cls.values():
+    #             if keyword.lower() in value.title.lower():
+    #                 key = "{}.{}".format(type(value).__name__, value.id)
+    #                 dic[key] = value
+    #     return (dic)
+    def search(self, cls=None, keyword=None):
+        """Search for instances of the given class based on a keyword.
+
+        Args:
+            cls (class): The class to search for instances.
+            keyword (str): The keyword to search for.
+
+        Returns:
+            dict: A dictionary containing instances that match the search criteria.
+        """
+        if not cls or cls not in classes.values() or not keyword or not isinstance(keyword, str):
+            return None
+
+        result_dict = {}
+
+        all_instances = models.storage.all(cls)
+
+        if keyword.lower() in ["partime", "fulltime"]:
+            for instance in all_instances.values():
+                if instance.type.lower() == keyword.lower():
+                    key = f"{type(instance).__name__}.{instance.id}"
+                    result_dict[key] = instance
+        else:
+            for instance in all_instances.values():
+                if keyword.lower() in instance.title.lower():
+                    key = f"{type(instance).__name__}.{instance.id}"
+                    result_dict[key] = instance
+
+        return result_dict
+
+        

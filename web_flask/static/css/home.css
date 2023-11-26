@@ -36,6 +36,10 @@
 .home-container .hero-section form {
     width: 100%;
     margin-top: 1rem;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 0.5rem;
 }
 
 .home-container .hero-section form input {
@@ -46,6 +50,10 @@
     padding: 0.5rem 0.5rem 0.5rem 1rem;
     border-radius: 0.5rem;
     border-width: 2px;
+    /* width: 50%; */
+}
+
+.home-container .hero-section form input:first-child {
     width: 50%;
 }
 
@@ -53,7 +61,7 @@
     color: var(--dark-grey);
 }
 
-.home-container .hero-section form button {
+.home-container .hero-section form .search-submit {
     background-color: var(--primary-color);
     font-family: var(--main-font);
     color: var(--white);
@@ -105,16 +113,21 @@
     width: 3rem;
     height: 3rem;
     border-radius: 50%;
-    background-color: var(--dark-grey);
+    background-color: var(--light-grey);
 }
 
-.home-container .job-type-section .job-type button {
+.home-container .job-type-section .job-type p {
+    margin-bottom: 2rem;
+}
+
+.home-container .job-type-section .job-type a {
     background: var(--white);
-    border: solid 1px var(--dark-grey);
+    border: solid 1px var(--primary-color);
     border-radius: 0.5rem;
     padding: 0.5rem 0.7rem;
     cursor: pointer;
     transition: ease-in-out 0.3s;
+    color: var(--primary-color);
 }
 
 .home-container .job-type-section .job-type button:hover {
