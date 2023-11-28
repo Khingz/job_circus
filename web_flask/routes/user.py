@@ -5,6 +5,7 @@ from forms.login import LoginForm
 from forms.register import RegisterForm
 from flask_bcrypt import Bcrypt
 from models.user import User
+from models.job import Job
 from models import storage
 
 from flask_login import login_user, current_user, login_required, logout_user
@@ -74,5 +75,18 @@ def register():
 @user.route("/logout")
 @login_required
 def logout():
+    """Log out functionality"""
     logout_user()
     return redirect(url_for('user.login'))
+
+@user.route("/user/<string:user_id>")
+@login_required
+def single_user(user_id):
+    """Return a single user"""
+    user = storage.get(User, user_id)
+    if user:
+       for job in user.jobs:
+        job.username = user.username
+       return render_template('profile.html', user=user, jobs=user.jobs)
+    else:
+        return render_template('404.html')

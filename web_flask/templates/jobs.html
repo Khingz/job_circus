@@ -10,9 +10,9 @@
             <h2>
                 JOBS LISTING:
                 {% if search == "" %}
-                ALL JOBS
+                <span>JOBS</span>
                 {% else %}
-                SEARCH FOR {{ search.upper() }}
+                <span>RESULT FOR {{ search.upper() }}</span>
                 {% endif %}
             </h2>
             <div class="job-listing">

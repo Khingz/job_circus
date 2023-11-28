@@ -1,0 +1,168 @@
+@import url('variables.css');
+
+.profile {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 4rem;
+}
+
+.profile-container {
+    width: 50%;
+    margin: 2rem auto;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 0.5rem;
+    background-color: var(--white);
+    color: var(--black);
+    padding: 1.5rem 1.8rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.profile-container .profile-img {
+    width: 7rem;
+    height: 7rem;
+    border-radius: 50%;
+    background-color: var(--primary-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--white);
+    font-size: 3rem;
+    margin-top: -80px;
+}
+
+.profile-container .profile-username {
+    font-size: 2rem;
+    color: var(--black);
+    margin-top: 0;
+}
+
+.profile-container .user-role {
+    color: var(--dark-grey);
+    font-size: 1.2rem;
+    margin-top: -1.4rem;
+}
+
+.profile-container .profile-details {
+    width: 95%;
+    justify-self: start;
+    align-items: flex-start;
+    border-top: solid 2px var(--light-grey);
+    margin-top: 0.5rem;
+    padding-top: 0.5rem;
+}
+
+.profile-container .profile-details .details-item {
+    margin-bottom: 1.1rem;
+}
+
+.profile-container .profile-details .details-item .details-title {
+    color: var(--dark-grey);
+    margin-bottom: -10px;
+}
+/* .profile-container .profile-details .details-item .details-body {
+    margin-bottom: -10px;
+} */
+
+.profile-container .user-buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.profile-container .user-buttons a {
+    border: solid 1px var(--primary-color);
+    padding: 0.5rem 1rem;
+    color: var(--primary-color);
+}
+
+.profile-container .user-buttons a.user-delete {
+    color: var(--white);
+    background-color: var(--red);
+    border-color: var(--red);
+}
+
+
+/* Joblisting Section  */
+.listing-container .job-listing-section {
+    width: 90%;
+    margin: 3rem auto;
+}
+
+.listing-container .job-listing-section h2 {
+    color: var(--primary-color);
+    border-bottom: 1px solid var(--primary-color);
+    padding-bottom: 0.7rem;
+    margin-bottom: 3rem;
+}
+
+.listing-container .job-listing-section .job-listing {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem; /* Adjust the gap between cards */
+    justify-content: center;
+    min-width: 50%; /* Set a maximum width for the container if needed */
+    margin: 0 auto; /* Center the container */
+}
+
+.listing-container .job-listing-section .view-all-job {
+    width: 100%;
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.listing-container .job-listing-section .view-all-job a {
+    background: none;
+    border: solid 1px var(--primary-color);
+    color: var(--primary-color);
+    padding: 0.3rem 1.5rem;
+    cursor: pointer;
+    font-family: var(--main-font);
+    /* margin: 2rem auto 0 auto; */
+    transition: ease-in-out 0.3s;
+}
+
+.listing-container .job-listing-section .view-all-job a:hover {
+    transform: scale(1.05);
+}
+
+/* End of job listing section  */
+
+
+/* Media Query For Smaller Screens */
+@media screen and (max-width: 800px) {
+    .profile-container {
+        width: 80%;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .profile-container .profile-img {
+        width: 5rem;
+        height: 5rem;
+        font-size: 2rem;
+        margin-top: -63px;
+    }
+    
+    .profile-container .profile-username {
+        font-size: 1.5rem;
+    }
+    
+    .profile-container .user-role {
+        font-size: 1rem;
+    }
+    
+    .profile-container .profile-details {
+        width: 100%;
+    }
+
+    .profile-container .user-buttons a {
+        padding: 0.3rem 0.7rem;
+        font-size: 0.8rem;
+    }
+}

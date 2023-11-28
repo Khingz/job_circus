@@ -124,24 +124,6 @@ class DBStorage:
                 return value
         return None
     
-    # def search(self, cls=None, keyword=None):
-    #     """Search based on keyword"""
-    #     if cls not in classes.values():
-    #         return None
-    #     dic = {}
-    #     if keyword:
-    #         all_cls = models.storage.all(cls)
-    #         if keyword.lower() in ["partime", "fulltime"]:
-    #             for value in all_cls.values():
-    #                 if (value.type == keyword):
-    #                     key = "{}.{}".format(type(value).__name__, value.id)
-    #                     dic[key] = value
-    #             return (dic)
-    #         for value in all_cls.values():
-    #             if keyword.lower() in value.title.lower():
-    #                 key = "{}.{}".format(type(value).__name__, value.id)
-    #                 dic[key] = value
-    #     return (dic)
     def search(self, cls=None, keyword=None):
         """Search for instances of the given class based on a keyword.
 

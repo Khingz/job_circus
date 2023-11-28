@@ -5,7 +5,6 @@ from forms.post_job import PostJobForm
 from models.job import Job
 from models.user import User
 from models import storage
-import sys
 
 
 job = Blueprint('job', __name__)
@@ -26,7 +25,7 @@ def home():
                 'id': job.id,
                 'title': job.title,
                 'description': job.description,
-                'created_at': job.created_at.strftime("%B %d"),
+                'created_at': job.created_at,
                 'username': user.username,
                 'user_id': job.user_id
             }
@@ -55,7 +54,7 @@ def all_jobs():
                 'salary': job.salary,
                 'requirements': job.requirements,
                 'deadline': job.deadline,
-                'created_at': job.created_at.strftime("%B %d"),
+                'created_at': job.created_at,
                 'username': user.username,
                 'user_id': job.user_id
             }
