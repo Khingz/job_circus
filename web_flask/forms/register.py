@@ -6,9 +6,9 @@ from wtforms.validators import InputRequired, Length, EqualTo
 
 class RegisterForm(FlaskForm):
     """Class extended from flask wtf for form login"""
-    firstname = StringField('Username', validators=[InputRequired(),
+    firstname = StringField('Firstname', validators=[InputRequired(),
                                              Length(min=4, max=15)])
-    lastname = StringField('Username', validators=[InputRequired(),
+    lastname = StringField('Lastname', validators=[InputRequired(),
                                              Length(min=4, max=15)])
     username = StringField('Username', validators=[InputRequired(),
                                              Length(min=4, max=15)])
@@ -19,6 +19,8 @@ class RegisterForm(FlaskForm):
     confirm_password = PasswordField('Password',
                                      validators=[InputRequired(), Length(min=4, max=100),
                                                  EqualTo('password')])
+    portfolio_url = StringField('Portfolio Url')
+    github_url = StringField('Github Url')
     role = RadioField('role',
                        choices=['Employer', 'Job-Seeker'],
                        validators=[InputRequired()])

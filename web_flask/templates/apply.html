@@ -24,16 +24,8 @@
                     </ul>
                 {% endif %}
             {% endwith %}
-            <form method="post" action="{{ url_for('application.apply', job_id=job.id) }}">
+            <form method="post" action="{{ url_for('applications.apply', job_id=job_id) }}">
                 {{ form.hidden_tag() }}
-                <div class="form-group">
-                    <label for="firstname">First Name:</label>
-                    {{ form.firstname(class="form-control", placeholder="Enter Firstname") }}
-                </div>
-                <div class="form-group">
-                    <label for="lastname">Last Name:</label>
-                    {{ form.lastname(class="form-control", placeholder="Enter Lastname") }}
-                </div>
                 <div class="form-group">
                     <label for="cover_letter">Cover Letter:</label>
                     {{ form.cover_letter(class="form-control", placeholder="Write your cover letter here") }}

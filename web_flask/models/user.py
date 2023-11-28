@@ -14,6 +14,8 @@ class User(BaseModel, UserMixin, Base):
     first_name = Column(String(128), nullable=False)
     last_name = Column(String(128), nullable=False)
     username = Column(String(128), nullable=False)
+    portfolio_url = Column(String(128), nullable=True)
+    github_url = Column(String(128), nullable=True)
     role = Column(Enum('Employer', 'Job-Seeker'), nullable=False)
 
     jobs = relationship('Job', back_populates='user', cascade='all, delete-orphan')
