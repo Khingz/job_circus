@@ -18,9 +18,15 @@
 
   .job-card .card-header p {
     background-color: var(--primary-color);
-    padding: 1rem;
+    width: 50px;
+    height: 50px;
+    /* padding: 1rem; */
     color: var(--white);
     border-radius: 50%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   .job-card button, .job-card a {

@@ -7,7 +7,14 @@
 {% block content %}
     <div class="home-container">
         <div class="job-listing-section">
-            <h2>JOBS LISTING</h2>
+            <h2>
+                JOBS LISTING:
+                {% if search == "" %}
+                ALL JOBS
+                {% else %}
+                SEARCH FOR {{ search.upper() }}
+                {% endif %}
+            </h2>
             <div class="job-listing">
                 <!-- Include the card component -->
                 {% if cards %}
