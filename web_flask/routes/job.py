@@ -5,7 +5,6 @@ from forms.post_job import PostJobForm
 from models.job import Job
 from models.user import User
 from models import storage
-import sys
 
 
 job = Blueprint('job', __name__)

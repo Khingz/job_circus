@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block styles %}
+    <!-- Link specific CSS styles for the single job page -->
+    <link rel="stylesheet" href="../static/css/profile.css">
+{% endblock %}
+{% block title %}Login{% endblock %}
+{% block content %}
+    <div class="profile">
+        <div class="profile-container">
+            <div class="profile-img">
+                <p>{{ user.username[0:2].upper() }}</p>
+            </div>
+            <div class="profile-details">
+                <div>
+                    Hello world
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -74,5 +74,16 @@ def register():
 @user.route("/logout")
 @login_required
 def logout():
+    """Log out functionality"""
     logout_user()
     return redirect(url_for('user.login'))
+
+@user.route("/user/<string:user_id>")
+@login_required
+def single_user(user_id):
+    """Return a single user"""
+    user = storage.get(User, user_id)
+    if user:
+       return render_template('profile.html', user=user)
+    else:
+        return render_template('404.html')

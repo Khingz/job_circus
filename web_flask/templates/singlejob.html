@@ -13,9 +13,14 @@
             <div class="singlejob-details">
                 <div class="details-header">
                     {% if current_user.username == user.username %}
-                    <p class="header-user"><span>Posted by:</span> You</p>
+                    <p class="header-user">
+                        <span>Posted by:</span>
+                        <a href="{{ url_for('user.single_user', user_id=current_user.id) }}">You</a>
+                    </p>
                     {% else %}
-                    <p class="header-user"><span>Posted by:</span> {{ user.username }}</p>
+                    <p class="header-user"><span>Posted by:</span> 
+                        <a href="{{ url_for('user.single_user', user_id=job.user_id) }}">{{ user.username }}</a>
+                    </p>
                     {% endif %}
                     <p class="header-date">{{ job.created_at.strftime("%B %d") }}</p>
                 </div>
@@ -36,7 +41,7 @@
                         <button type="submit" class="delete-btn">Delete</button>
                     </form>
                     {% else %}
-                    <a href="">Apply</a>
+                    <a href="{{ url_for('applications.apply', job_id=job.id) }}">Apply</a>
                     {% endif %}
                 </div>
             </div>
