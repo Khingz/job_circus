@@ -19,6 +19,8 @@ class RegisterForm(FlaskForm):
     confirm_password = PasswordField('Password',
                                      validators=[InputRequired(), Length(min=4, max=100),
                                                  EqualTo('password')])
+    portfolio_url = StringField('Portfolio Url')
+    github_url = StringField('Github Url')
     role = RadioField('role',
                        choices=['Employer', 'Job-Seeker'],
                        validators=[InputRequired()])

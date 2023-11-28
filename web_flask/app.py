@@ -3,6 +3,7 @@
 from flask import Flask, render_template, redirect, url_for
 from routes.user import user
 from routes.job import job
+from routes.application import applications
 from flask_bcrypt import Bcrypt
 from flask_login import LoginManager
 from models.user import User
@@ -44,6 +45,7 @@ def close_db(error):
 
 app.register_blueprint(user, url_prefix='/')
 app.register_blueprint(job, url_prefix='/')
+app.register_blueprint(applications, url_prefix='/')
 
 
 if __name__ == '__main__':

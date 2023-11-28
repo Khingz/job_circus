@@ -46,7 +46,9 @@ def register():
             "last_name": form.lastname.data,
             "password": bcrypt.generate_password_hash(form.password.data).decode('utf-8'),
             "email": form.email.data,
-            "role": form.role.data
+            "role": form.role.data,
+            "portfolio_url": form.portfolio_url.data,
+            "github_url": form.github_url.data
         }
         # Check if the email is already registered
         existing_email = storage.get_email(User, data['email'])
