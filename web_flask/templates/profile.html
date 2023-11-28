@@ -2,19 +2,76 @@
 {% block styles %}
     <!-- Link specific CSS styles for the single job page -->
     <link rel="stylesheet" href="../static/css/profile.css">
+    <!-- Link specific CSS styles for the homapage page  - this page share styling with job section of hompage - home.css  -->
+    <link rel="stylesheet" href="../static/css/home.css">
 {% endblock %}
 {% block title %}Login{% endblock %}
 {% block content %}
-    <div class="profile">
-        <div class="profile-container">
-            <div class="profile-img">
-                <p>{{ user.username[0:2].upper() }}</p>
-            </div>
-            <div class="profile-details">
-                <div>
-                    Hello world
+    <div class="profile-main">
+        <div class="profile">
+            <div class="profile-container">
+                <div class="profile-img">
+                    <p class=".user-img">{{ user.username[0:2].upper() }}</p>
                 </div>
+                <p class="profile-username">{{ user.first_name }} {{ user.last_name }}</p>
+                <p class="user-role">{{ user.role }}</p>
+                <div class="profile-details">
+                    <div  class="details-item">
+                        <p class="details-title">USERNAME:</p>
+                        <p class="details-body">{{ user.username.capitalize() }}</p>
+                    </div>
+                    <div  class="details-item">
+                        <p class="details-title">EMAIL:</p>
+                        <p class="details-body">{{ user.email.capitalize() }}</p>
+                    </div>
+                    <div  class="details-item">
+                        <p class="details-title">GITHUB URL:</p>
+                        {% if user.portfolio_url == None %}
+                        <p>Not Set</p>
+                        {% else %}
+                        <a href="{{ user.github_url }}">{{ user.github_url }}</a>
+                        {% endif %}
+                    </div>
+                    <div  class="details-item">
+                        <p class="details-title">PORTFOLIO URL:</p>
+                        {% if user.portfolio_url == None %}
+                        <p>Not Set</p>
+                        {% else %}
+                        <a href="{{ user.portfolio_url }}">{{ user.portfolio_url }}</a>
+                        {% endif %}
+                    </div>
+                </div>
+                {% if current_user.id == user.id %}
+                    <div class="user-buttons">
+                        <a href="" class="user-update">Update Account</a>
+                        <a href="" class="user-delete">Delete Account</a>
+                    </div>
+                {% endif %}
             </div>
         </div>
+        {% if current_user.id == user.id %}
+            <div class="user-jobs-app">
+                {% if current_user.role == 'Job-Seeker' %}
+                <h2>Jobs Applied</h2>
+                This is job Seeker
+                {% else %}
+                <div class="listing-container">
+                    <div class="job-listing-section">
+                        <h2>Jobs Posted</h2>
+                        <div class="job-listing">
+                            <!-- Include the card component -->
+                            {% if jobs %}
+                            {% for card in jobs %}
+                            {% include 'card.html' %}
+                            {% endfor %}
+                            {% else %}
+                            <p class="no-job">NO JOB AT THE MOMENT, PLEASE CHECK BACK LATER</p>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+        {% endif %}
     </div>
 {% endblock %}

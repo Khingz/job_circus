@@ -5,6 +5,7 @@ from forms.login import LoginForm
 from forms.register import RegisterForm
 from flask_bcrypt import Bcrypt
 from models.user import User
+from models.job import Job
 from models import storage
 
 from flask_login import login_user, current_user, login_required, logout_user
@@ -84,6 +85,8 @@ def single_user(user_id):
     """Return a single user"""
     user = storage.get(User, user_id)
     if user:
-       return render_template('profile.html', user=user)
+       for job in user.jobs:
+        job.username = user.username
+       return render_template('profile.html', user=user, jobs=user.jobs)
     else:
         return render_template('404.html')
