@@ -1,0 +1,31 @@
+@import url('variables.css');
+
+
+.apply-card {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    color: var(--black);
+    padding: auto 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1rem;
+}
+
+.apply-card .apply-job-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+}
+
+.apply-card .apply-job-buttons a {
+    border: solid 1px var(--primary-color);
+    padding: 0.5rem 1rem;
+    color: var(--primary-color);
+
+}
+
+.apply-card .apply-job-buttons a.apply-delete {
+    background-color: var(--red);
+    color: var(--white);
+    border: none;
+}

@@ -52,8 +52,22 @@
         {% if current_user.id == user.id %}
             <div class="user-jobs-app">
                 {% if current_user.role == 'Job-Seeker' %}
+                <!-- Include the card component -->
                 <h2>Jobs Applied</h2>
-                This is job Seeker
+                <div class="app-listing">
+                    <div class="app-line"></div>
+                    {% if applications %}
+                        {% for app in applications %}
+                        <ul>
+                            <li>
+                                {% include 'apply-card.html' %} 
+                            </li>
+                        </ul>
+                        {% endfor %}
+                    {% else %}
+                </div>
+                <p class="no-job">YOU HAVEN'T APPLIED FOR ANY JOB</p>
+                {% endif %}
                 {% else %}
                 <div class="listing-container">
                     <div class="job-listing-section">
@@ -61,9 +75,9 @@
                         <div class="job-listing">
                             <!-- Include the card component -->
                             {% if jobs %}
-                            {% for card in jobs %}
-                            {% include 'card.html' %}
-                            {% endfor %}
+                                {% for card in jobs %}
+                                    {% include 'card.html' %}
+                                {% endfor %}
                             {% else %}
                             <p class="no-job">NO JOB AT THE MOMENT, PLEASE CHECK BACK LATER</p>
                             {% endif %}

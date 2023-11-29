@@ -1,0 +1,35 @@
+@import url('variables.css');
+
+.singleapp {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    color: var(--black);
+    padding: auto 2rem;
+    padding: 0 1rem;
+    width: 70%;
+    margin: 4rem auto;
+    padding: 4rem;
+    box-sizing: border-box;
+}
+
+.singleapp .singleapp-item {
+    border-bottom: solid 1px var(--light-grey);
+}
+
+.singleapp .singleapp-item .singleapp-title {
+    color: var(--dark-grey);
+    font-size: 1.1rem;
+}
+
+.singleapp .singleapp-item .singleapp-username {
+    font-size: 1.5rem;
+}
+
+.singleapp .singleapp-item .singleapp-username a {
+    color: var(--black);
+}
+
+.singleapp .singleapp-profile-btn a {
+    border: solid 1px var(--primary-color);
+    padding: 0.5rem 1rem;
+    color: var(--primary-color);
+}
