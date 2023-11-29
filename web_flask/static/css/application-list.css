@@ -1,0 +1,16 @@
+@import url('variables.css');
+
+.apply-list-container {
+    width: 100%;
+}
+
+.apply-list-container .apply-list-section {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    color: var(--black);
+    padding: auto 2rem;
+    padding: 0 1rem;
+    width: 90%;
+    margin: 4rem auto;
+    padding: 4rem;
+    box-sizing: border-box;
+}

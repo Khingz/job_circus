@@ -3,7 +3,7 @@
 .job-card {
     width: 15rem; /* Set a fixed width for the card */
     max-width: 100%; /* Ensure the card is not wider than the viewport */
-    padding: 1.5rem;
+    padding: 0.5rem 1.5rem;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     border-radius: 0.5rem;
     background-color: var(--white);
@@ -35,7 +35,8 @@
     cursor: pointer;
   }
 
-  .job-card .card-view-buttons, .job-card .card-delete-btn {
+  .job-card .card-view-buttons,
+  .job-card .card-delete-btn {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -45,7 +46,7 @@
     margin-bottom: 0.5rem;
   }
 
-  .job-card button.apply-btn, .job-card button.edit-btn {
+  .job-card a.apply-btn, .job-card button.edit-btn {
     background-color: var(--white);
     color: var(--primary-color);
     border: solid 1px var(--primary-color);
@@ -64,4 +65,13 @@
     color: var(--white);
     border: none;
     border-radius: 0.2rem;
+}
+
+
+.job-card .view-applicants {
+  text-align: center;
+}
+
+.job-card .view-applicants a {
+  color: var(--dark-grey);
 }

@@ -25,7 +25,7 @@ def login():
         # Handle form submission logic here
         email = form.email.data
         password = form.password.data
-        user = storage.get_email(User, email)
+        user = storage.get_email(User, email.lower())
         if user and bcrypt.check_password_hash(user.password, password):
             login_user(user)
             return redirect(url_for('job.home'))
@@ -46,7 +46,7 @@ def register():
             "first_name": form.firstname.data,
             "last_name": form.lastname.data,
             "password": bcrypt.generate_password_hash(form.password.data).decode('utf-8'),
-            "email": form.email.data,
+            "email": form.email.data.lower(),
             "role": form.role.data,
             "portfolio_url": form.portfolio_url.data,
             "github_url": form.github_url.data
@@ -85,8 +85,17 @@ def single_user(user_id):
     """Return a single user"""
     user = storage.get(User, user_id)
     if user:
-       for job in user.jobs:
-        job.username = user.username
-       return render_template('profile.html', user=user, jobs=user.jobs)
+       if user.role == "Employer":
+        for job in user.jobs:
+            job.username = user.username
+        return render_template('profile.html', user=user, jobs=user.jobs)
+       else:
+            for app in user.applications:
+                job = storage.get(Job, app.job_id)
+                user = storage.get(User, app.user_id)
+                app.title = job.title
+                app.firstname = user.first_name
+                app.lastname = user.last_name
+            return render_template('profile.html', user=user, applications=user.applications)
     else:
         return render_template('404.html')

@@ -134,6 +134,20 @@
 /* End of job listing section  */
 
 
+.profile-main .user-jobs-app {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.profile-main .user-jobs-app h2 {
+    color: var(--primary-color);
+}
+
+.profile-main .user-jobs-app .app-line {
+    border-bottom: solid 1px var(--primary-color);
+}
+
+
 /* Media Query For Smaller Screens */
 @media screen and (max-width: 800px) {
     .profile-container {

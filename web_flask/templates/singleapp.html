@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block styles %}
+    <!-- Link specific CSS styles for the single job page -->
+    <link rel="stylesheet" href="../static/css/singleapp.css">
+{% endblock %}
+{% block title %}Login{% endblock %}
+{% block content %}
+    <div class="singleapp">
+        <div class="singleapp-item">
+            <p class="singleapp-title">Job Titile</p>
+            <h2>{{ job.title }}</h2>
+        </div>
+        <div class="singleapp-item">
+            <p class="singleapp-title">Applicant Name</p>
+            <p class="singleapp-username"><a href="{{ url_for('user.single_user', user_id=app.user_id) }}">
+                {{ user.first_name }}
+                {{ user.last_name }}
+            </a></p>
+        </div>
+        <div class="singleapp-item">
+            <p class="singleapp-title">Cover Letter</p>
+            <p class="singleapp-letter-ans">{{ app.cover_letter }}</p>
+        </div>
+        {% if current_user.id != app.user_id %} 
+        <div class="singleapp-item">
+            <p class="singleapp-profile-btn"><a href="{{ url_for('user.single_user', user_id=app.user_id) }}" class="singleapp-profile">Applicant Profile</a></p>
+        </div>
+        {% endif %}
+    </div>
+{% endblock %}

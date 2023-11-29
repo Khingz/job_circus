@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block styles %}
+    <!-- Link specific CSS styles for the homapage page  - this page share styling with job section of hompage - home.css  -->
+    <link rel="stylesheet" href="../static/css/application-list.css">
+{% endblock %}
+{% block title %}Login{% endblock %}
+{% block content %}
+    <div class="apply-list-container">
+        <div class="apply-list-section">
+            <h2>Applications</h2>
+            <div class="apply-list-line"></div>
+            <div class="apply-list">
+                {% for app in applications %}
+                    <ul>
+                        <li>
+                            {% include 'apply-card.html' %} 
+                        </li>
+                    </ul>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}
