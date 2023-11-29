@@ -57,3 +57,14 @@ def single_app(app_id):
         return render_template('singleapp.html', job=job, user=user, app=app)
     else:
         return render_template('404.html')
+    
+@applications.route('/application/<string:app_id>', methods=['POST'], strict_slashes=False)
+def delete_app(app_id):
+    """Delete App route - delete a application"""
+    app = storage.get(Application, app_id)
+    if app:
+       storage.delete(app)
+       storage.save()
+       return redirect(url_for('job.home'))
+    else:
+        return render_template('404.html')

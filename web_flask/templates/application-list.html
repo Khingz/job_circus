@@ -3,13 +3,14 @@
     <!-- Link specific CSS styles for the homapage page  - this page share styling with job section of hompage - home.css  -->
     <link rel="stylesheet" href="../static/css/application-list.css">
 {% endblock %}
-{% block title %}Login{% endblock %}
+{% block title %}JobCircus - Applications{% endblock %}
 {% block content %}
     <div class="apply-list-container">
         <div class="apply-list-section">
             <h2>Applications</h2>
             <div class="apply-list-line"></div>
             <div class="apply-list">
+                {% if applications %}
                 {% for app in applications %}
                     <ul>
                         <li>
@@ -17,6 +18,9 @@
                         </li>
                     </ul>
                 {% endfor %}
+                {% else %}
+                    <p>No User have applied for the Job yet</p>
+                {% endif %}
             </div>
         </div>
     </div>

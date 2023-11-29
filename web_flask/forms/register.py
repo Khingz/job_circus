@@ -2,7 +2,7 @@
 """Register form extended from flask wtf"""
 from flask_wtf import FlaskForm
 from wtforms import (StringField, PasswordField, SubmitField, RadioField)
-from wtforms.validators import InputRequired, Length, EqualTo
+from wtforms.validators import InputRequired, Length, EqualTo, Email
 
 class RegisterForm(FlaskForm):
     """Class extended from flask wtf for form login"""
