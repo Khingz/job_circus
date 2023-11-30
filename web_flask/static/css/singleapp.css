@@ -33,3 +33,13 @@
     padding: 0.5rem 1rem;
     color: var(--primary-color);
 }
+
+
+/* Media Query For Smaller Screens */
+@media screen and (max-width: 600px) {
+    .singleapp {
+        padding: 1.5rem;
+        width: 95%;
+        margin: 3rem auto;
+    }
+}

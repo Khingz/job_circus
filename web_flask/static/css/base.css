@@ -1,5 +1,9 @@
 @import url('variables.css');
 
+body {
+    overflow-x: hidden;
+}
+
 /* Header Section Begin */
 header {
     width: 100%;
@@ -92,14 +96,11 @@ main {
 /* Footer Section Begin */
 footer {
     width: 100%;
-    padding: 0.2rem 0;
+    text-align: center;
     background-color: var(--primary-color);
-    display: flex;
-    justify-content: center;
-    align-items: center;
     border-top: solid 2px white;
     color: white;
-    height: 10vh;
+    padding: 1.5rem 0;
 }
 /* Footer Section End */
 

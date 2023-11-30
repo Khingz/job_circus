@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="../static/css/main.css">
     <link rel="stylesheet" href="../static/css/base.css">
     {% block styles %}{% endblock %}
-    <title>JobCircus - Welcome</title>
+    <title>{% block title %}JobCircus - Welcome{% endblock %}</title>
 </head>
 <body>
     <header>
@@ -39,7 +39,7 @@
         {% block content %}{% endblock %}
     </main>
     <footer>
-        <p>Copyright&copy;2023 JobCircus. All rights reserved.</p>
+        <span>Copyright&copy;2023 JobCircus. All rights reserved.</span>
     </footer>
 </body>
 </html>

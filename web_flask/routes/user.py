@@ -99,3 +99,14 @@ def single_user(user_id):
             return render_template('profile.html', user=user, applications=user.applications)
     else:
         return render_template('404.html')
+    
+@user.route('/user/<string:user_id>', methods=['POST'], strict_slashes=False)
+def delete_user(user_id):
+    """Delete User route - delete a user account"""
+    user = storage.get(User, user_id)
+    if user:
+       storage.delete(user)
+       storage.save()
+       return redirect(url_for('user.register'))
+    else:
+        return render_template('404.html')
