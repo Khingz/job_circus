@@ -14,3 +14,12 @@
     padding: 4rem;
     box-sizing: border-box;
 }
+
+
+
+/* Media query  */
+@media screen and (max-width: 768px) {
+    .apply-list-container .apply-list-section {
+        padding: 1rem;
+    }
+}

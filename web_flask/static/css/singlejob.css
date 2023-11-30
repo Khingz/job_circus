@@ -80,6 +80,7 @@
     border-color: var(--red);
     background-color: var(--red);
     color: var(--white);
+    margin-bottom: 1.5rem;
 }
 
 .singlejob-container .details-requirement {
@@ -95,7 +96,7 @@
 /* Media query  */
 @media screen and (max-width: 1000px) {
     .singlejob-container {
-        width: 80%;
+        width: 50%;
     }
 
     .singlejob-container .singlejob-title {
@@ -103,10 +104,11 @@
     }
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 768px) {
     .singlejob-container {
         flex-direction: column;
-        width: 85%;
+        width: 80%;
+        padding: 1rem;
     }
 
     .singlejob-container .singlejob-title {
@@ -115,10 +117,10 @@
     }
 
     .singlejob-container .singlejob-title {
-        width: 80%;
+        width: 100%;
     }
     
     .singlejob-container .singlejob-details {
-        width: 80%;
+        width: 100%;
     }
 }

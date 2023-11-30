@@ -2,10 +2,9 @@
 
 .login_container {
     display: flex;
-    justify-content: space-between;
     width: 100%;
     min-height: 80vh;
-    margin: auto;
+    margin: 0 auto;
     gap: 3rem;
 }
 
@@ -96,10 +95,15 @@
     border: none;
     transition: ease-in-out 0.8s;
     font-family: var(--main-font);
+    margin-top: 0.9rem;
 }
 
 .container-right .submit:hover {
     background-color: var(--hover-color);
+}
+
+.container-right p{
+    text-align: center;
 }
 
 
@@ -111,9 +115,8 @@
     
     .container-right {
         width: 90%;
-        justify-content: center;
-        align-items: center;
-        margin: 0 auto;
+        display: block;
+        margin: 3rem auto;
     }
 
     .container-right form {

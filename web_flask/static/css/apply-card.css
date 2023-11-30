@@ -24,8 +24,32 @@
 
 }
 
-.apply-card .apply-job-buttons a.apply-delete {
-    background-color: var(--red);
+.apply-card .apply-job-buttons .apply-delete-btn form .delete-btn {
     color: var(--white);
-    border: none;
+    background-color: var(--red);
+    border-color: var(--red);
+    padding: 0.5rem 1rem;
+    font-family: var(--primary-color);
+    border: solid 1px var(--red);
+    cursor: pointer;
+}
+
+/* Media query  */
+@media screen and (max-width: 1000px) {
+    .singlejob-container {
+        width: 50%;
+    }
+
+    .singlejob-container .singlejob-title {
+        font-size: 2rem;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .apply-card {
+        flex-direction: column;
+        justify-content: start;
+        align-items: flex-start;
+        padding-bottom: 1rem;
+    }
 }

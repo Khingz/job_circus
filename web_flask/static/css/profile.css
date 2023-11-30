@@ -38,7 +38,7 @@
 .profile-container .profile-username {
     font-size: 2rem;
     color: var(--black);
-    margin-top: 0;
+    margin-top: 0.8rem;
 }
 
 .profile-container .user-role {
@@ -79,12 +79,17 @@
     border: solid 1px var(--primary-color);
     padding: 0.5rem 1rem;
     color: var(--primary-color);
+    cursor: pointer;
 }
 
-.profile-container .user-buttons a.user-delete {
+.profile-container .user-buttons .profile-delete-btn form button {
     color: var(--white);
     background-color: var(--red);
     border-color: var(--red);
+    padding: 0.5rem 1rem;
+    font-family: var(--primary-color);
+    border: solid 1px var(--red);
+    cursor: pointer;
 }
 
 
@@ -178,5 +183,10 @@
     .profile-container .user-buttons a {
         padding: 0.3rem 0.7rem;
         font-size: 0.8rem;
+    }
+
+    
+    .profile-main .user-jobs-app {
+        width: 95%;
     }
 }

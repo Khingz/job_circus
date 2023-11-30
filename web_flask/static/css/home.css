@@ -5,6 +5,7 @@
     width: 100%;
     margin: 2rem auto;
     position: relative;
+    overflow-x: hidden;
 }
 
 /* Begining of hero section  */
@@ -16,7 +17,6 @@
 
 .home-container .hero-section .hero-right {
     width: 50%;
-    margin-top: -1rem;
     padding: 0 1rem 0 4rem;
 }
 
@@ -82,9 +82,8 @@
 .home-container .post-hero-section {
     background-color: var(--primary-color);
     color: var(--white);
-    padding: 0.5rem 0;
+    padding: 0.5rem;
     text-align: center;
-    /* margin-top: -1rem; */
     position: relative;
     z-index: 1;
 }
@@ -191,8 +190,6 @@
 }
 
 .home-container .add-post-home-btn a {
-    /* height: 5rem;
-    width: 5rem; */
     background-color: var(--primary-color);
     color: var(--white);
     font-size: 3rem;
