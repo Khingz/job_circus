@@ -25,6 +25,7 @@ jobs:
 
     - name: Deploy to server
       run: |
+        mkdir -p ~/.ssh/known_hosts
         echo "100.25.158.180 ssh-rsa ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDNsjyAzerXVocISsqG5xPGmmBCJXn7dsSyCS9nppjChGgNk+HTqqxzSpQnrE4ZeWIPwq+D5IQmrvR1IuL404qHxv4cR0/4i7ZQF1JM9PhfzJkT8iBUsEcppjm1YC2IP/+KR7XDeCceW5SoBRY67z582O2F4nEHv8XH2kE9BCbifUpafnKMcW4FqqU8zVWEYkKF2CdcJxDpX2xdmx39V226PmnwpWHL3bq01R+fR5if+HFXQIlrUNQIrTuX2qxcGZUIQWBxyMffKM/UfT1da6WT3LMCmdIbay7HH2nL5mOY16IAsv4KpPLFn2eW+j1pewLrvKJfiCinkJQDDIrNZ8mqad/xf5Dx9BbZGg0qf8FeJ/8VlhtWPdO+3KuDlscZbacNLLNw7LFaeoS/OMYswN5WeP2dGCQUjrXOy7w9XLgvaYtCGsqBPR4ZUkZ2axfkVNSZcdmvPkBGaNWZbCGWq7J80gElrZ/SCwS+DM/9kAMCzvAZzn8BHDmxWg5xg03LkUk= root@9ea58564e4ea" >> ~/.ssh/known_hosts
         echo "${{ secrets.SSH_KEY_PRIVATE }}" > ssh_key.pem
         chmod 600 ssh_key.pem
