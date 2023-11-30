@@ -25,5 +25,7 @@ jobs:
 
     - name: Deploy to server
       run: |
-        ssh ubuntu@100.25.158.180 'cd /home/ubuntu/jc/job_circus && git pull origin master'
+        echo "${{ secrets.SSH_KEY_PRIVATE }}" > ssh_key.pem
+        chmod 600 ssh_key.pem
+        ssh -i ssh_key.pem ubuntu@100.25.158.180 'cd /home/ubuntu/jc/job_circus && git pull origin master'
         echo "JobCircus for Life!!!"
