@@ -15,7 +15,9 @@
     box-sizing: border-box;
 }
 
-
+.apply-list-container .apply-list-section h2 {
+    color: var(--primary-color);
+}
 
 /* Media query  */
 @media screen and (max-width: 768px) {
