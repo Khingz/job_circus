@@ -2,10 +2,15 @@
 {% block styles %}
     <!-- Link specific CSS styles for the homapage page  - this page share styling with job section of hompage - home.css  -->
     <link rel="stylesheet" href="../static/css/home.css">
+    <link rel="stylesheet" href="../static/css/jobs.css">
 {% endblock %}
 {% block title %}JobCircus - Jobs{% endblock %}
 {% block content %}
-    <div class="home-container">
+    <div class="home-container jobs-container">
+        <form method="get" action="{{ url_for('job.all_jobs') }}" class="job-search">
+            <input type="text" id="search" name="search" placeholder="Search Job" value="{{ search }}">
+            <input type="submit" value="Search" class="search-submit">
+        </form>
         <div class="job-listing-section">
             <h2>
                 JOBS LISTING:

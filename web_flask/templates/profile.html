@@ -26,18 +26,18 @@
                     </div>
                     <div  class="details-item">
                         <p class="details-title">GITHUB URL:</p>
-                        {% if user.portfolio_url == None %}
+                        {% if user.portfolio_url == "" %}
                         <p>Not Set</p>
                         {% else %}
-                        <a href="{{ user.github_url }}">{{ user.github_url }}</a>
+                        <p>{{ user.github_url }}</p>
                         {% endif %}
                     </div>
                     <div  class="details-item">
                         <p class="details-title">PORTFOLIO URL:</p>
-                        {% if user.portfolio_url == None %}
+                        {% if user.portfolio_url == "" %}
                         <p>Not Set</p>
                         {% else %}
-                        <a href="{{ user.portfolio_url }}">{{ user.portfolio_url }}</a>
+                        <p>{{ user.portfolio_url }}</p>
                         {% endif %}
                     </div>
                 </div>
