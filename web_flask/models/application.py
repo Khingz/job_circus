@@ -10,5 +10,5 @@ class Application(BaseModel, Base):
     __tablename__ = 'applications'
     user_id = Column(String(100), ForeignKey("users.id"), nullable=False)
     job_id = Column(String(100), ForeignKey("jobs.id"), nullable=False)
-    cover_letter = Column(Text(1000), nullable=False)
+    cover_letter = Column(Text(5000), nullable=False)
     user = relationship('User', back_populates='applications')

@@ -21,6 +21,12 @@ def apply(job_id):
             "job_id": job_id,
             "cover_letter": form.cover_letter.data
         }
+        for item in current_user.applications:
+            print(item)
+            if item.job_id == job_id:
+                flash('You already applied for this job', 'success')
+                # return render_template('profile.html')
+                return render_template('apply.html', job_id=job_id, form=form)
         new_application = Application(**data)
         # Save the application to the database
         new_application.save()
@@ -45,6 +51,7 @@ def get_applications(job_id):
             app.lastname = user.last_name
             apps_data.append(app)
     return render_template('application-list.html', applications=apps_data)
+
 
 @applications.route('/application/<string:app_id>', methods=['GET'], strict_slashes=False)
 @login_required

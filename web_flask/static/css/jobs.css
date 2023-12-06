@@ -1,0 +1,31 @@
+@import url('variables.css');
+
+.jobs-container .job-search {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.jobs-container .job-search input {
+    font-family: var(--primary-color);
+    background-color: var(--white);
+    color: var(--dark-grey);
+    border: solid 1px var(--light-grey);
+    padding: 0.5rem 0.5rem 0.5rem 1rem;
+    border-radius: 0.5rem;
+    border-width: 2px;
+}
+
+.jobs-container .job-search input:first-child {
+    width: 30%;
+}
+
+.jobs-container .job-search .search-submit {
+    background-color: var(--primary-color);
+    font-family: var(--main-font);
+    color: var(--white);
+    border: none;
+    padding: 0.55rem 1rem;
+    border-radius: 0.3rem;
+    cursor: pointer;
+    transition: 1s ease-in-out;
+}

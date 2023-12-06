@@ -17,7 +17,7 @@ def home():
     jobs = storage.all(Job).values()
     for index, job in enumerate(jobs):
         # Limit the loop to the first 9 iterations
-        if index >= 9:
+        if index >= 7:
             break
         user = storage.get(User, job.user_id)
         if user:

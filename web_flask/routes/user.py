@@ -29,6 +29,7 @@ def login():
         if user and bcrypt.check_password_hash(user.password, password):
             login_user(user)
             return redirect(url_for('job.home'))
+        flash('Invalid username or password', 'error')
     return render_template('login.html', form=form)
 
 
@@ -68,8 +69,7 @@ def register():
         flash("User Created Successfully", "success")
         # Rediect to Loggin Page
         return redirect(url_for('user.login'))
-    flash("Fill in all fields", "success")
-    return render_template('register.html', form=form)
+    return render_template('register.html', form=form,)
 
 
 @user.route("/logout")
@@ -101,6 +101,7 @@ def single_user(user_id):
         return render_template('404.html')
     
 @user.route('/user/<string:user_id>', methods=['POST'], strict_slashes=False)
+@login_required
 def delete_user(user_id):
     """Delete User route - delete a user account"""
     user = storage.get(User, user_id)
@@ -110,3 +111,30 @@ def delete_user(user_id):
        return redirect(url_for('user.register'))
     else:
         return render_template('404.html')
+    
+
+# @user.route('/user/update/<string:user_id>', methods=['GET', 'POST'])
+# @login_required
+# def update_user(user_id):
+#     """Update route"""
+#     user = storage.get(User, user_id)
+#     if not user:
+#         flash("User not found", "error")
+#         return redirect(url_for('job.home'))
+#     form = UpdateForm(obj=user)
+#     if form.validate_on_submit():
+#         """Handle form submission logic here"""
+#         # extract data from form
+#         data = {
+#             "first_name": form.firstname.data,
+#             "last_name": form.lastname.data,
+#             "password": bcrypt.generate_password_hash(form.password.data).decode('utf-8'),
+#             "portfolio_url": form.portfolio_url.data,
+#             "github_url": form.github_url.data
+#         }
+#         # Create new User
+#         user.update(**data)
+#         flash("User Updated Successfully", "success")
+#         # Rediect to Loggin Page
+#         return redirect(url_for('job.home'))
+#     return render_template('update_user.html', form=form, user=current_user)
