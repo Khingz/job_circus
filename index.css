@@ -4,6 +4,7 @@ body {
     margin: 0;
     padding: 0;
     font-family: var(--main-font);
+    overflow-x: hidden;
 }
 
 ul {
@@ -111,7 +112,7 @@ nav a {
 #features {
     background-color: var(--white);
     width: 100%;
-    padding: 70px 0;
+    padding: 2rem 0;
     text-align: center;
 }
 
@@ -126,10 +127,13 @@ nav a {
     align-items: center;
     width: 100%;
     gap: 1rem;
+    border-bottom: solid 2px lightgray;
+    margin-bottom: 1rem;
+    padding: 1rem;
 }
 
 .feature-img img {
-    max-width: 100%;
+    max-width: 80%;
     height: auto;
 }
 
@@ -153,7 +157,7 @@ nav a {
 
 #about {
     background-color: #f4f4f4;
-    padding: 70px 0;
+    padding: 1rem 0;
     text-align: center;
 }
 
@@ -171,10 +175,77 @@ nav a {
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-wrap: wrap;
+    gap: 2rem;
+    width: 60%;
+    margin: 2rem auto;
 }
 
-.team-member img {
-    width: 20%;
-    border-radius: 2rem;
+.team-member .team-img {
+    width: 100%;
+}
+
+.team-member .team-img img {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.team-member p {
+    font-size: 1.3rem;
+    text-align: center;
+}
+
+.team-member ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin-top: -1rem;
+}
+
+.team-member ul li a {
+    color: var(--dark-gray);
+}
+
+ video {
+    margin-top: 3rem;
+    width: 60%;
+ }
+
+
+ /* Media Query For Smaller Screens */
+@media screen and (max-width: 1000px) {
+    header .container .brand {
+        font-size: 1rem;
+    }
+
+    nav ul{
+        display: flex;
+    }
+
+    #hero .container {
+        width: 65%;
+    }
+
+    #hero h2 {
+        font-size: 1.5rem;
+    }
+
+    #hero p {
+        font-size: 1rem;
+    }
+
+    .feature {
+        flex-direction: column;
+    }
+
+    .feature-content {
+        width: 90%;
+    }
+
+    #about .description-team .team {
+        flex-direction: column;
+    }
+    
 }
