@@ -50,7 +50,7 @@ To get started with **JobCircus**, follow these steps:
   <img src="https://github.com/theenduranceA.png?size=50">
 </a>
 <a href="https://github.com/ama-dii">
-  <img src="https://github.com/Thorbie010.png?size=50">
+  <img src="https://github.com/Thorbie010.png?size=10">
 </a>
 
 ## **Contributing**
