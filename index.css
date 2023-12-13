@@ -1,0 +1,269 @@
+@import url('./web_flask/static/css/variables.css');
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: var(--main-font);
+    overflow-x: hidden;
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+header {
+    background-color: var(--primary-color);
+    color: var(--white);
+    padding: 1rem 0;
+}
+
+header .container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 2rem;
+}
+
+header .container .brand {
+    color: var(--black);
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+header .container .brand a {
+    color: var(--white);
+    text-decoration: none;
+}
+
+header .container .brand span {
+    height: 300px;
+    width: 300px;
+    border-radius: 50%;
+    background-color: var(--white);
+    color: var(--primary-color);
+    margin-right: 0.2rem;
+    padding: 0.5rem 0.6rem;
+}
+
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+}
+
+#hero {
+    background-image: url('./web_flask/static/image/hero\ image.jpg');
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+    text-align: center;
+    padding: 10rem 0;
+}
+
+#hero .container {
+    background-color:rgba(0, 0, 0, 0.4);
+    padding: 2rem;
+    width: 50%;
+    border-radius: 2rem;
+}
+
+#hero h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+#hero p {
+    font-size: 1.2rem;
+    margin-bottom: 40px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background: none;
+    border: solid 1px var(--white);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: all 0.8s ease-in-out;
+}
+
+.btn:hover {
+    background-color: var(--white);
+    border: none;
+    color: var(--black);
+}
+
+/* end of hero  */
+
+/* feature begins  */
+#features {
+    background-color: var(--white);
+    width: 100%;
+    padding: 2rem 0;
+    text-align: center;
+}
+
+#features h2 {
+    font-size: 2.5rem;
+    margin: 40px auto;
+}
+
+.feature {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    gap: 1rem;
+    border-bottom: solid 2px lightgray;
+    margin-bottom: 1rem;
+    padding: 1rem;
+}
+
+.feature-img img {
+    max-width: 80%;
+    height: auto;
+}
+
+.feature-content {
+    padding: 0 20px;
+    width: 50%;
+    text-align: left;
+}
+
+.feature h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.feature p {
+    font-size: 1rem;
+    color: #666;
+}
+
+/* feature ends  */
+
+#about {
+    background-color: #f4f4f4;
+    padding: 1rem 0;
+    text-align: center;
+}
+
+#about h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+#about .about-description,
+#about .description-team {
+    text-align: left;
+}
+
+#about .description-team .team {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    width: 60%;
+    margin: 2rem auto;
+}
+
+.team-member .team-img {
+    width: 100%;
+}
+
+.team-member .team-img img {
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.team-member p {
+    font-size: 1.3rem;
+    text-align: center;
+}
+
+.team-member ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin-top: -1rem;
+}
+
+.team-member ul li a {
+    color: var(--dark-gray);
+}
+
+ video {
+    margin-top: 3rem;
+    width: 60%;
+ }
+
+
+ /* Media Query For Smaller Screens */
+@media screen and (max-width: 1000px) {
+    header .container .brand {
+        font-size: 1rem;
+    }
+
+    nav ul{
+        display: flex;
+    }
+
+    #hero .container {
+        width: 65%;
+    }
+
+    #hero h2 {
+        font-size: 1.5rem;
+    }
+
+    #hero p {
+        font-size: 1rem;
+    }
+
+    .feature {
+        flex-direction: column;
+    }
+
+    .feature-content {
+        width: 90%;
+    }
+
+    #about .description-team .team {
+        flex-direction: column;
+    }
+    
+}
+
+@media screen and (max-width: 700px) {
+    .team-member .team-img img {
+        width: 200px;
+        height: 200px;
+    }
+
+    video {
+        width: 80%;
+    }
+}

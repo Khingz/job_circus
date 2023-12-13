@@ -42,8 +42,8 @@ class BaseModel():
     def save(self):
         """Updates the updated_at attribute to current time"""
         self.updated_at = datetime.now()
-        models.storage.new(self)
-        models.storage.save()
+        models.storage.new(self)  # Add a new instance to the session
+        models.storage.save()  # Commit changes to the database
 
     def to_dict(self):
         """Return a dictionary representation of the BaseModel instance.
@@ -61,3 +61,12 @@ class BaseModel():
     def delete(self):
         """Delete the current instance from storage."""
         models.storage.delete(self)
+
+    def update(self, **kwargs):
+        """Update the instance with the provided keyword arguments."""
+        for key, value in kwargs.items():
+            if key != '__class__':
+                if key in ['created_at', 'updated_at']:
+                    value = datetime.fromisoformat(value)
+                setattr(self, key, value)
+        self.save()

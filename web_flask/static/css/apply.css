@@ -82,7 +82,7 @@
     border-color: var(--primary-color);
     cursor: pointer;
     transition: ease-in-out 0.8s;
-    font-family: sans-serif;
+    font-family: var(--main-font);
     border: none;
 }
 

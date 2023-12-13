@@ -92,6 +92,30 @@ main {
 }
 /* main section end  */
 
+/* flash message  */
+.flash-message {
+    text-align: center;
+    width: 100%;
+    color: var(--white);
+    padding: 0.2rem;
+    background-color: #c7c702;
+}
+
+/* .flash-message .success {
+    background-color: var(--primary-color);
+}
+
+.flash-message .error {
+    text-align: center;
+    width: 100%;
+    color: var(--white);
+    padding: 0.2rem;
+    margin-top: 1rem;
+    background-color: var(--red);
+} */
+
+/* flash message end  */
+
 
 /* Footer Section Begin */
 footer {

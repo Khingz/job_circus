@@ -40,7 +40,7 @@
                         <input type="hidden" name="_method" value="DELETE">
                         <button type="submit" class="delete-btn">Delete</button>
                     </form>
-                    {% else %}
+                    {% elif current_user.id != job.user_id and current_user.role == 'Job-Seeker' %}
                     <a href="{{ url_for('applications.apply', job_id=job.id) }}">Apply</a>
                     {% endif %}
                 </div>
