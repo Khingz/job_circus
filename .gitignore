@@ -5,3 +5,4 @@ __pycache__/
 lib/
 Scripts/
 include/
+.env

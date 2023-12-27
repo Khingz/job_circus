@@ -8,13 +8,18 @@ from flask_bcrypt import Bcrypt
 from flask_login import LoginManager
 from models.user import User
 from models import storage
+from dotenv import load_dotenv
+import os
 
-import sys
-print(sys.path)
 
+# Load environment variables from .env file
+load_dotenv()
+
+# Get env variables
+FLASK_SECRET_KEY = os.getenv('FLASK_SECRET_KEY')
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = 'secret_key'
+app.config['SECRET_KEY'] = FLASK_SECRET_KEY
 bcrypt = Bcrypt(app)
 login_manager = LoginManager(app)
 
@@ -34,7 +39,7 @@ def load_user(user_id):
 # Redirection for unathorized page for non logged in user
 @login_manager.unauthorized_handler
 def unauthorized():
-    """Handles edirection for protected routes"""
+    """Handles redirection for protected routes"""
     return redirect(url_for('user.login'))
 
 @app.teardown_appcontext
