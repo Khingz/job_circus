@@ -5,4 +5,5 @@ __pycache__/
 lib/
 Scripts/
 include/
+sql_utility/
 .env

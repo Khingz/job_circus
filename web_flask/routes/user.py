@@ -1,19 +1,27 @@
 #!/usr/bin/env python3
 """User routes"""
 from flask import Blueprint, render_template, redirect, url_for, flash
-from forms.login import LoginForm
-from forms.register import RegisterForm
+from ..forms.login import LoginForm
+from ..forms.register import RegisterForm
 from flask_bcrypt import Bcrypt
 from models.user import User
 from models.job import Job
 from models import storage
-
 from flask_login import login_user, current_user, login_required, logout_user
+from itsdangerous import URLSafeTimedSerializer
+import os
+from dotenv import load_dotenv
+from flask_mail import Message
 
+load_dotenv()
+
+
+# Get env variables
+ITD_SECRET_KEY = os.getenv('ITD_SECRET_KEY')
 
 bcrypt = Bcrypt()
 user = Blueprint('user', __name__)
-
+serializer = URLSafeTimedSerializer(ITD_SECRET_KEY)
 
 @user.route('/login', methods=['GET', 'POST'], endpoint='login')
 def login():
@@ -50,7 +58,8 @@ def register():
             "email": form.email.data.lower(),
             "role": form.role.data,
             "portfolio_url": form.portfolio_url.data,
-            "github_url": form.github_url.data
+            "github_url": form.github_url.data,
+            "email_verify": False
         }
         # Check if the email is already registered
         existing_email = storage.get_email(User, data['email'])
@@ -67,9 +76,44 @@ def register():
         # Save User in database
         new_user.save()
         flash("User Created Successfully", "success")
-        # Rediect to Loggin Page
-        return redirect(url_for('user.login'))
+        # Login user
+        login_user(new_user)
+        # Redirect to confirm email
+        return redirect(url_for('user.confirm_email'))
     return render_template('register.html', form=form,)
+
+
+@user.route('/confirm_email', methods=['GET', 'POST'], endpoint='confirm_email')
+def confirm_email():
+    """Sends link to verify email"""
+    from web_flask import mail
+    if current_user.email_verify:
+        return redirect(url_for('job.home'))
+    user_id = current_user.id 
+    user_email = current_user.email
+    token = serializer.dumps(user_id)
+    verification_link = url_for('user.verify_email', token=token, _external=True)
+    msg = Message('Verify Your Email',
+                  sender='noreply',
+                  recipients=[user_email])
+    msg.body = f'To Complete your sign up please click the following link to verify your email: {verification_link}'
+    mail.send(msg)
+    return render_template('confirm-email.html')
+
+@user.route('/verify_email/<token>', methods=['GET', 'POST'], endpoint='verify_email')
+def verify_email(token):
+    """Handles email verification"""
+    try:
+        user_id = serializer.loads(token, max_age=900)
+        user = user = storage.get(User, user_id)
+        user.email_verify = True
+        user.save()
+        flash('Email verification successful')
+        return redirect(url_for('job.home'))
+    except Exception as e:
+        # Handle token verification failure
+        flash('Email verification failed. Please try again')
+        return redirect(url_for('user.confirm_email'))
 
 
 @user.route("/logout")

@@ -1,0 +1,22 @@
+@import url('variables.css');
+
+.verify-email-container {
+    width: 90%;
+    margin: 3rem auto;
+}
+
+.verify-email-container button {
+    background-color: var(--primary-color);
+    font-family: var(--main-font);
+    padding: 0.6rem 1.5rem;
+    color: var(--white);
+    border: none;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.5s ease;
+}
+
+.verify-email-container button:hover {
+    transform: scale(1.05);
+}
