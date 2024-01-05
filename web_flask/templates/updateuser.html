@@ -7,12 +7,12 @@
 {% block content %}
     <div class="register_container">
         <div class="container-left">
-            <h2>Welcome</h2>
-            <p>Create an account to get the most of JobCircus</p>
+            <h2>Update Account</h2>
+            <p>Up to date account helps employers connect with you easily</p>
         </div>
         <div class="container-right">
-            <h2>Create Account</h2>
-            <form method="post" action="{{ url_for('user.register') }}" novalidate>
+            <h2>Update Account</h2>
+            <form method="post" action="{{ url_for('user.update_user') }}" novalidate>
                 {{ form.hidden_tag() }}
                 <div class="form-group">
                     <label for="firstname">First Name:</label>
@@ -23,14 +23,6 @@
                     {{ form.last_name(class="form-control", placeholder="Enter Lastname") }}
                 </div>
                 <div class="form-group">
-                    <label for="username">Username:</label>
-                    {{ form.username(class="form-control", placeholder="Enter Username") }}
-                </div>
-                <div class="form-group">
-                    <label for="email">Email:</label>
-                    {{ form.email(class="form-control", placeholder="Enter Email") }}
-                </div>
-                <div class="form-group">
                     <label for="portfolio_url">Portfolio URL:</label>
                     {{ form.portfolio_url(class="form-control", placeholder="Enter Portfolio Url") }}
                 </div>
@@ -39,21 +31,17 @@
                     {{ form.github_url(class="form-control", placeholder="Enter Github Url") }}
                 </div>
                 <div class="form-group">
-                    <label for="password">Password:</label>
-                    {{ form.password(class="form-control", placeholder="Enter Password") }}
+                    <label for="password">New password:</label>
+                    {{ form.new_password(class="form-control", placeholder="Enter Password") }}
                 </div>
                 <div class="form-group">
-                    <label for="confirm_password">Confirm Password:</label>
-                    {{ form.confirm_password(class="form-control", placeholder="Confirm Password") }}
-                </div>
-                <div class="form-group role">
-                    {{ form.role() }}
+                    <label for="confirm_password">Confirm new password:</label>
+                    {{ form.confirm_new_password(class="form-control", placeholder="Confirm Password") }}
                 </div>
                 <div class="form-group">
-                    {{ form.submit(class="submit") }}
+                    {{ form.update(class="submit") }}
                 </div>
             </form>
-            <p>Already have an Account <a href="{{ url_for('user.login') }}">Login</a></p>
         </div>
     </div>
 {% endblock %}

@@ -23,7 +23,7 @@ MAIL_PORT = os.getenv('MAIL_PORT')
 MAIL_USERNAME = os.getenv('MAIL_USERNAME')
 MAIL_PASSWORD = os.getenv('MAIL_PASSWORD')
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder='static')
 app.secret_key = FLASK_SECRET_KEY
 bcrypt = Bcrypt(app)
 login_manager = LoginManager(app)

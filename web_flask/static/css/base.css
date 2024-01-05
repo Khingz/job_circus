@@ -109,7 +109,8 @@ footer {
 .flash-message {
     width: 100%;
     color: var(--white);
-    background-color: #99cc33;
+    background-color: var(--dark-grey);
+    border-bottom: solid var(--white) 1px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -138,6 +139,10 @@ footer {
         flex-direction: column;
         justify-content: center;
         gap: 1.5rem;
+    }
+
+    .flash-message {
+        padding: 0 1rem;
     }
 }
 /* End of media Query  */

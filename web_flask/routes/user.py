@@ -2,7 +2,7 @@
 """User routes"""
 from flask import Blueprint, render_template, redirect, url_for, flash
 from ..forms.login import LoginForm
-from ..forms.register import RegisterForm
+from ..forms.register import RegisterForm, UpdateForm
 from flask_bcrypt import Bcrypt
 from models.user import User
 from models.job import Job
@@ -81,6 +81,9 @@ def register():
         login_user(new_user)
         # Redirect to confirm email
         return render_template('confirm-email.html')
+    for field, errors in form.errors.items():
+        for error in errors:
+            flash(f"{form[field].label.text}: {error}")
     return render_template('register.html', form=form,)
 
 
@@ -192,3 +195,45 @@ def delete_user(user_id):
 #         # Rediect to Loggin Page
 #         return redirect(url_for('job.home'))
 #     return render_template('update_user.html', form=form, user=current_user)
+    
+@user.route('/update_user/', methods=['GET', 'POST'])
+@login_required
+def update_user():
+    """Update route"""
+    user = storage.get(User, current_user.id)
+    if not user:
+        flash("User not found", "error")
+        return render_template('404.html')
+    form = UpdateForm(obj=user)
+    if form.validate_on_submit():
+        """Handle form submission logic here"""
+        # extract data from form
+        data = {
+            "first_name": form.first_name.data if form.first_name.data else user.first_name,
+            "last_name": form.last_name.data if form.last_name.data else user.last_name,
+            "password": bcrypt.generate_password_hash(form.new_password.data).decode('utf-8') if form.new_password.data else user.password,
+            "portfolio_url": form.portfolio_url.data if form.portfolio_url.data else user.portfolio_url,
+            "github_url": form.github_url.data if form.github_url.data else user.github_url,
+            # "email_verify": user.email_verify,
+            # "username": user.username,
+            # "role": user.role,
+            # "email": user.email
+        }
+        # Create new User
+        user.update(**data)
+        # flash("User Updated Successfully")
+        # return redirect(url_for('job.home'))
+        if current_user.role == "Employer":
+            for job in current_user.jobs:
+                job.username = current_user.username
+                flash("User current Successfully")
+                return render_template('profile.html', user=current_user, jobs=current_user.jobs)
+        else:
+            for app in current_user.applications:
+                job = storage.get(Job, app.job_id)
+                user = storage.get(User, app.user_id)
+                app.title = job.title
+                app.firstname = user.first_name
+                app.lastname = user.last_name
+            return render_template('profile.html', user=user, applications=user.applications)
+    return render_template('updateuser.html', form=form)
