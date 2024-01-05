@@ -1,11 +1,11 @@
 from flask import Blueprint, render_template, redirect, url_for, flash
-from forms.application import ApplicationForm
+from ..forms.application import ApplicationForm
 from models.user import User
 from models.job import Job
 from models.application import Application
 from flask_login import login_required, current_user
 from models import storage
-import sys
+from flask_mail import Message
 
 applications = Blueprint('applications', __name__)
 
@@ -13,6 +13,9 @@ applications = Blueprint('applications', __name__)
 @login_required
 def apply(job_id):
     """Handles job apllication"""
+    from web_flask import mail
+    if not current_user.email_verify:
+        return redirect(url_for('user.confirm_page'))
     form = ApplicationForm()
     if form.validate_on_submit():
         # Create a new application
@@ -22,16 +25,20 @@ def apply(job_id):
             "cover_letter": form.cover_letter.data
         }
         for item in current_user.applications:
-            print(item)
             if item.job_id == job_id:
-                flash('You already applied for this job', 'success')
-                # return render_template('profile.html')
+                flash('You already applied for this job')
                 return render_template('apply.html', job_id=job_id, form=form)
         new_application = Application(**data)
         # Save the application to the database
         new_application.save()
-
-        flash('Application submitted successfully!', 'success')
+        flash('Application submitted successfully!')
+        job = storage.get(Job, job_id)
+        employer = storage.get(User, job.user_id)
+        msg = Message('New Job Application Notification',
+                        sender='noreply',
+                        recipients=[employer.email])
+        msg. body = f'Hi,\n\nYou have a new job application for the position of {job.title}.\n\nApplicant: {current_user.username}\n\nPlease log in to your job portal to review the application.'
+        mail.send(msg)
         return redirect(url_for('job.home'))
     return render_template('apply.html', job_id=job_id, form=form)
 
@@ -68,10 +75,13 @@ def single_app(app_id):
 @applications.route('/application/<string:app_id>', methods=['POST'], strict_slashes=False)
 def delete_app(app_id):
     """Delete App route - delete a application"""
+    if not current_user.email_verify:
+        return redirect(url_for('user.confirm_page'))
     app = storage.get(Application, app_id)
     if app:
        storage.delete(app)
        storage.save()
+       flash('Application deleted successfully!')
        return redirect(url_for('job.home'))
     else:
         return render_template('404.html')

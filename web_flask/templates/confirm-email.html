@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block styles %}
+    <!-- Link specific CSS styles for the login page -->
+    <link rel="stylesheet" href="../static/css/confirm-email.css">
+{% endblock %}
+{% block title %}JobCircus - Not Found{% endblock %}
+{% block content %}
+    <div class="verify-email-container">
+        <h2>Thank you for registering</h2>
+        <p>Please click the verify button below to verify your email address.</p>
+        <!-- <button>Get Link</button> -->
+        <div>
+            <a href="{{ url_for('user.confirm_email') }}">Verify Email</a>
+        </div>
+
+    </div>
+{% endblock %}
