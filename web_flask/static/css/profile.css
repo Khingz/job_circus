@@ -68,6 +68,21 @@
     margin-bottom: -10px;
 } */
 
+.profile-container .profile-confirm-email {
+    margin: 2rem 0;
+}
+
+.profile-container .profile-confirm-email a {
+    background-color: var(--primary-color);
+    font-family: var(--main-font);
+    padding: 0.5rem 1rem;
+    color: var(--white);
+    border: none;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.5s ease;
+}
+
 .profile-container .user-buttons {
     display: flex;
     align-items: center;

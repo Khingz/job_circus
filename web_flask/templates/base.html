@@ -36,10 +36,26 @@
         </nav>
     </header>
     <main>
-        {% block content %}{% endblock %}
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+        <div class="flash-message">
+            <p class="{{ category }}">{{ messages[0] }}</p>
+            <button type="button" data-dismiss="alert" aria-label="close" onclick="closeAlert(this)"><span aria-hidden="true">&times;</span></button>
+        </div>
+    {% endif %}
+    {% endwith %}
+    {% block content %}{% endblock %}
     </main>
     <footer>
         <span>Copyright&copy;2023 JobCircus. All rights reserved.</span>
     </footer>
+
+    <script>
+        function closeAlert(button) {
+            // Find the parent element (the alert box) and remove it
+            const alertBox = button.parentElement;
+            alertBox.style.display = 'none';
+        }
+    </script>
 </body>
 </html>

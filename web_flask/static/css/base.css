@@ -92,30 +92,6 @@ main {
 }
 /* main section end  */
 
-/* flash message  */
-.flash-message {
-    text-align: center;
-    width: 100%;
-    color: var(--white);
-    padding: 0.2rem;
-    background-color: #c7c702;
-}
-
-/* .flash-message .success {
-    background-color: var(--primary-color);
-}
-
-.flash-message .error {
-    text-align: center;
-    width: 100%;
-    color: var(--white);
-    padding: 0.2rem;
-    margin-top: 1rem;
-    background-color: var(--red);
-} */
-
-/* flash message end  */
-
 
 /* Footer Section Begin */
 footer {
@@ -127,6 +103,29 @@ footer {
     padding: 1.5rem 0;
 }
 /* Footer Section End */
+
+
+/* flash message  */
+.flash-message {
+    width: 100%;
+    color: var(--white);
+    background-color: #99cc33;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 3rem;
+    box-sizing: border-box;
+}
+
+.flash-message button {
+    background: none;
+    color: var(--white);
+    font-size: 1.5rem;
+    border: none;
+    cursor: pointer;
+}
+
+/* flash message end  */
 
 
 /* Media Query  */

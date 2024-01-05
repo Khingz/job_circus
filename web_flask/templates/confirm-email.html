@@ -7,8 +7,11 @@
 {% block content %}
     <div class="verify-email-container">
         <h2>Thank you for registering</h2>
-        <p>Please click the button below to verify your email address.</p>
+        <p>Please click the verify button below to verify your email address.</p>
         <!-- <button>Get Link</button> -->
-        <a href="{{ url_for('user.confirm_email') }}">Verify Email</a>
+        <div>
+            <a href="{{ url_for('user.confirm_email') }}">Verify Email</a>
+        </div>
+
     </div>
 {% endblock %}

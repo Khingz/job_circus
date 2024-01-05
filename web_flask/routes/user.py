@@ -36,8 +36,9 @@ def login():
         user = storage.get_email(User, email.lower())
         if user and bcrypt.check_password_hash(user.password, password):
             login_user(user)
+            flash('Logged in successfully')
             return redirect(url_for('job.home'))
-        flash('Invalid username or password', 'error')
+        flash('Invalid username or password')
     return render_template('login.html', form=form)
 
 
@@ -64,22 +65,22 @@ def register():
         # Check if the email is already registered
         existing_email = storage.get_email(User, data['email'])
         if existing_email:
-            flash('Email address is already registered. Please use a different email.', 'danger')
+            flash('Email address is already registered. Please use a different email.')
             return redirect(url_for('user.register'))
         # Check if the username already exist
         existing_username = storage.get_username(User, data['username'])
         if existing_username:
-            flash('Username is already registered. Please use a different username.', 'danger')
+            flash('Username is already registered. Please use a different username.')
             return redirect(url_for('user.register'))
         # Create new User
         new_user = User(**data)
         # Save User in database
         new_user.save()
-        flash("User Created Successfully", "success")
+        flash("User Created Successfully")
         # Login user
         login_user(new_user)
         # Redirect to confirm email
-        return redirect(url_for('user.confirm_email'))
+        return render_template('confirm-email.html')
     return render_template('register.html', form=form,)
 
 
@@ -98,6 +99,14 @@ def confirm_email():
                   recipients=[user_email])
     msg.body = f'To Complete your sign up please click the following link to verify your email: {verification_link}'
     mail.send(msg)
+    flash('Please check your email for confirmation link')
+    return render_template('confirm-email.html')
+
+@user.route('/confirm-page', methods=['GET'], endpoint='confirm_page')
+def confirm_page():
+    """renders confirm email page"""
+    if current_user.email_verify:
+        return redirect(url_for('job.home'))
     return render_template('confirm-email.html')
 
 @user.route('/verify_email/<token>', methods=['GET', 'POST'], endpoint='verify_email')
@@ -121,6 +130,7 @@ def verify_email(token):
 def logout():
     """Log out functionality"""
     logout_user()
+    flash('User logged out successfully')
     return redirect(url_for('user.login'))
 
 @user.route("/user/<string:user_id>")
@@ -150,9 +160,9 @@ def delete_user(user_id):
     """Delete User route - delete a user account"""
     user = storage.get(User, user_id)
     if user:
-       storage.delete(user)
-       storage.save()
-       return redirect(url_for('user.register'))
+        storage.delete(user)
+        storage.save()
+        return redirect(url_for('user.register'))
     else:
         return render_template('404.html')
     

@@ -14,6 +14,8 @@ applications = Blueprint('applications', __name__)
 def apply(job_id):
     """Handles job apllication"""
     from web_flask import mail
+    if not current_user.email_verify:
+        return redirect(url_for('user.confirm_page'))
     form = ApplicationForm()
     if form.validate_on_submit():
         # Create a new application
@@ -24,15 +26,14 @@ def apply(job_id):
         }
         for item in current_user.applications:
             if item.job_id == job_id:
-                flash('You already applied for this job', 'success')
+                flash('You already applied for this job')
                 return render_template('apply.html', job_id=job_id, form=form)
         new_application = Application(**data)
         # Save the application to the database
         new_application.save()
-        flash('Application submitted successfully!', 'success')
+        flash('Application submitted successfully!')
         job = storage.get(Job, job_id)
         employer = storage.get(User, job.user_id)
-        job_applicant = current_user.email
         msg = Message('New Job Application Notification',
                         sender='noreply',
                         recipients=[employer.email])
@@ -74,10 +75,13 @@ def single_app(app_id):
 @applications.route('/application/<string:app_id>', methods=['POST'], strict_slashes=False)
 def delete_app(app_id):
     """Delete App route - delete a application"""
+    if not current_user.email_verify:
+        return redirect(url_for('user.confirm_page'))
     app = storage.get(Application, app_id)
     if app:
        storage.delete(app)
        storage.save()
+       flash('Application deleted successfully!')
        return redirect(url_for('job.home'))
     else:
         return render_template('404.html')

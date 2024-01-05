@@ -5,10 +5,14 @@
     margin: 3rem auto;
 }
 
-.verify-email-container button {
+.verify-email-container div {
+    margin: 2rem 0;
+}
+
+.verify-email-container a {
     background-color: var(--primary-color);
     font-family: var(--main-font);
-    padding: 0.6rem 1.5rem;
+    padding: 0.5rem 1.5rem;
     color: var(--white);
     border: none;
     border-radius: 10px;
@@ -17,6 +21,6 @@
     transition: all 0.5s ease;
 }
 
-.verify-email-container button:hover {
+.verify-email-container a:hover {
     transform: scale(1.05);
 }

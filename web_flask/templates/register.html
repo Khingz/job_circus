@@ -5,13 +5,6 @@
 {% endblock %}
 {% block title %}JobCircus - Register{% endblock %}
 {% block content %}
-{% with messages = get_flashed_messages() %}
-{% if messages %}
-    <div class="flash-message">
-        <p class="{{ category }}">{{ messages[0] }}</p>
-    </div>
-{% endif %}
-{% endwith %}
     <div class="register_container">
         <div class="container-left">
             <h2>Welcome</h2>

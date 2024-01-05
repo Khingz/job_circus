@@ -66,6 +66,9 @@ def all_jobs():
 @login_required
 def post_job():
     """Post job route"""
+    if not current_user.email_verify:
+        flash('Please verify your email to continue!')
+        return redirect(url_for('user.confirm_page'))
     form = PostJobForm()
     if form.validate_on_submit():
         """Handle form submission logic here"""
@@ -83,10 +86,10 @@ def post_job():
         new_job = Job(**data)
         # Save User in database
         new_job.save()
-        flash("Job Created Successfully", "success")
+        flash("Job posted successfully")
         # Rediect to Login Page
         return redirect(url_for('job.home'))
-    flash("Fill in all fields", "success")
+    flash("Fill in all fields")
     return render_template('postform.html', form=form)
 
 
@@ -104,10 +107,14 @@ def single_job(job_id):
 @job.route('/job/<string:job_id>', methods=['POST'], strict_slashes=False)
 def delete_job(job_id):
     """Delete Job route - delete a single job"""
+    if not current_user.email_verify:
+        flash('Please verify your email to continue!')
+        return redirect(url_for('user.confirm_page'))
     job = storage.get(Job, job_id)
     if job:
        storage.delete(job)
        storage.save()
+       flash('Job deleted successfully!')
        return redirect(url_for('job.home'))
     else:
         return render_template('404.html')

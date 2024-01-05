@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Main app file where Flask app is defined and configure"""
-from flask import Flask, render_template, redirect, url_for
+from flask import Flask, render_template, redirect, url_for, flash
 from .routes.user import user
 from .routes.job import job
 from .routes.application import applications
@@ -54,6 +54,7 @@ def load_user(user_id):
 @login_manager.unauthorized_handler
 def unauthorized():
     """Handles redirection for protected routes"""
+    flash('Please login to continue')
     return redirect(url_for('user.login'))
 
 @app.teardown_appcontext
